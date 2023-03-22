@@ -21,3 +21,5 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('login',[imscontroller::class,'index'])->name('login');
+
