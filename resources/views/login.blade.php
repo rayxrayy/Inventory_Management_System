@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +19,8 @@
                         <h1>Welcome to Our Application</h1>
                         <p>Please login to use the platform</p>
                     </div>
-                    <form class="login-form" autocomplete="off">
+                    <form method="post" action="index" class="login-form" autocomplete="off">
+                    @csrf
                         <div class="login-form-content">
                             <div class="form-item">
                                 <label for="emailForm">Enter Email</label>
@@ -37,7 +39,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Sign In</button>
+                            <button name="submit" type="submit">log In</button>
                         </div>
                         <div class="login-form-footer">
                             <a href="#">
@@ -91,4 +93,5 @@
     </div>
     <script src="{{asset('jsfile/login.js')}}"></script>
 </body>
+
 </html>
