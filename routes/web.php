@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\imscontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+// Route::get('/', function () {
+//     return view('login');
+// });
 
-Route::get('/dashboard', function () {
-    return view('forgotpassword');
-});
+// Route::get('/dashboard', function () {
+//     return view('category');
+// });
 
-Route::get('login',[imscontroller::class,'index'])->name('login');
+Route::view('','login');
+Route::post('login',[imscontroller::class,'index'])->name('login');
 
+if (isset($_POST['submit'])) {
+    echo "Hello";
+  }
+// Route::post('login','imscontroller@login');
+
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
