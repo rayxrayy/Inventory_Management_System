@@ -16,17 +16,19 @@ use App\Http\Controllers\imscontroller;
 // Route::get('/', function () {
 //     return view('login');
 // });
-
 // Route::get('/dashboard', function () {
 //     return view('category');
 // });
 
 Route::view('','login');
-Route::post('login',[imscontroller::class,'index'])->name('login');
 
-if (isset($_POST['submit'])) {
-    echo "Hello";
-  }
+Route::post('/login',[imscontroller::class,'index'])->name('login');
+// Route::post('/password',[imscontroller::class,'class'])->name('password');
+
+
+// if (isset($_POST['submit'])) {
+//     echo "Hello";
+//   }
 // Route::post('login','imscontroller@login');
 
 

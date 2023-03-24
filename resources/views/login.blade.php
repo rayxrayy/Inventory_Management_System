@@ -1,5 +1,4 @@
-
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,13 +13,13 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <form method="post" action='/login' class="sign-in-form">
                     <div class="login-header">
                         <h1>Welcome to Our Application</h1>
                         <p>Please login to use the platform</p>
                     </div>
-                    <form method="post" action="index" class="login-form" autocomplete="off">
-                    @csrf
+                    <form class="login-form" autocomplete="off">
+                     @csrf
                         <div class="login-form-content">
                             <div class="form-item">
                                 <label for="emailForm">Enter Email</label>
@@ -40,7 +39,8 @@
                                 </div>
                             </div>
                             <button name="submit" type="submit">log In</button>
-                        </div>
+                             <!-- <button onsubmit="return index()" >login</button>  -->
+</div>
                         <div class="login-form-footer">
                             <a href="#">
                                 <img width="30"
@@ -93,5 +93,4 @@
     </div>
     <script src="{{asset('jsfile/login.js')}}"></script>
 </body>
-
 </html>

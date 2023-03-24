@@ -16,7 +16,7 @@
                     <div class="login-header">
                         <h1>Forgot Password</h1>
                     </div>
-                    <form class="login-form" autocomplete="off">
+                    <form method="post" action="class" class="login-form" autocomplete="off">
                         <div class="login-form-content">
                             <div class="form-item">
                                 <label for="emailForm">Enter Email</label>
