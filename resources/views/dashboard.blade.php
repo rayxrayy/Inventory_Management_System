@@ -7,7 +7,7 @@
   <!--Material Icon-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
       rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+      <link rel="stylesheet" href="{{asset('cssfile/styles.css')}}">
   <title>Document</title>
  </head>
  <body>
@@ -65,7 +65,7 @@
           <span class="material-icons-sharp">add</span>
           <h3>Add Product</h3>
         </a> -->
-        <a href="#">
+        <a href="{{route('logout'}}">
           <span class="material-icons-sharp">logout</span>
           <h3>Log out</h3>
         </a>
@@ -445,6 +445,6 @@
     </div>
      </div>
   </div>
-  <script src="./index.js"></script>
+  <script src="{{asset('jsfile/index.js')}}"></script>
  </body>
  </html>

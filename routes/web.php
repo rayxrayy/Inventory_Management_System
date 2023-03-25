@@ -22,7 +22,8 @@ use App\Http\Controllers\imscontroller;
 
 Route::view('','login');
 
-Route::post('/login',[imscontroller::class,'index'])->name('login');
+Route::post('login',[imscontroller::class,'index'])->name('login');
+// Route::post('/login',[imscontroller::class,'index'])->name('login');
 // Route::post('/password',[imscontroller::class,'class'])->name('password');
 
 

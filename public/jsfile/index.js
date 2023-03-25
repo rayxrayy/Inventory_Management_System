@@ -57,6 +57,6 @@ function html_table_to_excel(type)
 
     const export_button = document.getElementById('export_button');
 
-    export_button.addEventListener('click', () =>  {
-        html_table_to_excel('xlsx');
-    });
+    // export_button.addEventListener('click', () =>  {
+    //     html_table_to_excel('xlsx');
+    // });
