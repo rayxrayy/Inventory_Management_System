@@ -2,11 +2,26 @@ const sideMenu = document.querySelector("aside");
 const menuBtn = document.querySelector("#menu-btn");
 const closeBtn = document.querySelector("#close-btn");
 const themeToggler = document.querySelector(".theme-toggler");
-
+const logoutIcon = document.getElementById("logout");
 const sideBar = document.querySelector(".sidebar");
 // show sidebar
 menuBtn.addEventListener('click', () => {
     sideMenu.style.display = 'block';
+})
+
+//logout dashboard
+logoutIcon.addEventListener('click', () => {
+
+    if(confirm("Are you sure you want to logout?")){
+        // Display a message while logging out
+        alert('Logging out...'); 
+        window.location.href = 'http://127.0.0.1:8000';
+    }
+    else{
+        return false;
+    }
+    
+    // console.log("logout");
 })
 
 //close sidebar
@@ -22,12 +37,12 @@ themeToggler.addEventListener('click', () => {
     themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
 })
 
-//change navbar onclick
-sideBar.addEventListener('click', () => {
-    document.getElementsByTagName(a).className = "active";
+// //change navbar onclick
+// sideBar.addEventListener('click', () => {
+//     document.getElementsByTagName(a).className = "active";
 
     
-})
+// })
 
 // function addClass() {
 //     document.getElementsByTagName(a).className = "active";

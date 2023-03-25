@@ -26,7 +26,7 @@
                             <div>
                                 <p>Back to <a href="#">Login</a></p>
                          
-                                    </div>
+                           </div>
                         </div>
                     </form>
                 </form>

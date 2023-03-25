@@ -37,6 +37,10 @@
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
+                            <div>
+                                <p>Back to <a href="http://127.0.0.1:8000/">Login</a></p>
+                         
+                           </div>
                         </div>
                     </form>
                 </div>
