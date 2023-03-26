@@ -1,5 +1,4 @@
-
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,37 +10,45 @@
 </head>
 
 <body>
-    <h1>hello</h1>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <form method="post" action='/login' class="sign-in-form">
                     <div class="login-header">
                         <h1>Welcome to Our Application</h1>
                         <p>Please login to use the platform</p>
                     </div>
-                    <form method="post" action="index" class="login-form" autocomplete="off">
-                    @csrf
+                    <form class="login-form" autocomplete="off">
+                     @csrf
                         <div class="login-form-content">
                             <div class="form-item">
                                 <label for="emailForm">Enter Email</label>
-                                <input type="text" id="emailForm">
+                                <input type="text" id="emailForm" name="email" required>
+                                
                             </div>
                             <div class="form-item">
                                 <label for="passwordForm">Enter Password</label>
-                                <input type="password" id="passwordForm">
+                                <input type="password" id="passwordForm" name="password" required>
                             </div>
                             <div class="form-item">
                                 <div class="checkbox">
                                     <input type="checkbox" id="rememberMeCheckbox" checked>
                                     <label class="checkboxLabel" for="rememberMeCheckbox">Remember me</label>
                                     <div>
-                                        <a href="#">I Forgot Password!</a>
+                                         @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                                        {{-- <!-- <a href="href="{{ route('password.request') }}"">I Forgot Password!</a> --> --}}
                                     </div>
                                 </div>
                             </div>
                             <button name="submit" type="submit">log In</button>
-                        </div>
+                             <!-- <button onsubmit="return index()" >login</button>  -->
+</div> @if (session('error'))
+                            <div class="error-message">{{ session('error') }}</div>
+                        @endif
                         <div class="login-form-footer">
                             <a href="#">
                                 <img width="30"
@@ -94,5 +101,4 @@
     </div>
     <script src="{{asset('jsfile/login.js')}}"></script>
 </body>
-
 </html>

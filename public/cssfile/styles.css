@@ -240,6 +240,9 @@ aside .sidebar a:hover {
 aside .sidebar a:hover span {
     margin-left: 1rem;
 }
+button.material-icons-sharp {
+    color: var(--color-primary);
+}
 
 aside .sidebar .message-count {
     background: var(--color-danger);

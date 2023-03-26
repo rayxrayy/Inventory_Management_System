@@ -1,7 +1,12 @@
 <?php
 
+namespace App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\imscontroller;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\logincontroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,24 +17,12 @@ use App\Http\Controllers\imscontroller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('login');
-// });
-
-// Route::get('/dashboard', function () {
-//     return view('category');
-// });
-
 Route::view('','login');
-Route::post('login',[imscontroller::class,'index'])->name('login');
 
-if (isset($_POST['submit'])) {
-    echo "Hello";
-  }
-// Route::post('login','imscontroller@login');
+// Route::post('/login',[imscontroller::class, 'index'])->name('login');
+Auth::routes();
+Route::get('/home', [imscontroller::class, 'index'])->name('home');
 
+Route::post('/dashboard',[imscontroller::class,'home'])->name('dashboard');
 
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// ?>
