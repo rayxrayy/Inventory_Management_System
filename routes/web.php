@@ -19,7 +19,8 @@ use App\Http\Controllers\logincontroller;
 */
 Route::view('','login');
 
-// Route::post('/login',[imscontroller::class, 'index'])->name('login');
+Route::post('/login',[imscontroller::class, 'index'])->name('login');
+
 Auth::routes();
 Route::get('/home', [imscontroller::class, 'index'])->name('home');
 

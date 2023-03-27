@@ -13,12 +13,12 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form method="post" action='/login' class="sign-in-form">
+                <form method="post" action='/dashboard' class="sign-in-form">
                     <div class="login-header">
                         <h1>Welcome to Our Application</h1>
                         <p>Please login to use the platform</p>
                     </div>
-                    <form class="login-form" autocomplete="off">
+                    <form class="login-form" action='/dashboard' autocomplete="off">
                      @csrf
                         <div class="login-form-content">
                             <div class="form-item">
