@@ -66,7 +66,7 @@
           <span class="material-icons-sharp">add</span>
           <h3>Add Product</h3>
         </a> -->
-                <a id="logout" href="#">
+                <a id="logout" href="{{ route('logout') }}">
                     <!-- <button name="submit" class="material-icons-sharp" type="submit">logout</button> -->
                     <span class="material-icons-sharp ">logout</span>
                     <h3>Log out</h3>
@@ -279,7 +279,7 @@
                 </div>
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Daniel</b></p>
+                        <p>Hey, <b>{{ auth()->user()->name }}</b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">

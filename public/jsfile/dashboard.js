@@ -4,6 +4,7 @@ const closeBtn = document.querySelector("#close-btn");
 const themeToggler = document.querySelector(".theme-toggler");
 const logoutbtn = document.querySelector(".logout");
 const sideBar = document.querySelector(".sidebar");
+
 // show sidebar
 menuBtn.addEventListener('click', () => {
     sideMenu.style.display = 'block';

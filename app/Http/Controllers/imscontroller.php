@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class imscontroller extends Controller
 {
     public function index(Request $req){
-    echo "hello";
+    // echo "hello";
     return view('dashboard');
+
     // $req->validate([
 
     //     'email' => 'required',
@@ -45,6 +46,10 @@ class imscontroller extends Controller
 // return redirect('forgotpassword');
 
 public function home(){
+    
     return view('dashboard');
 }
+// public function category(){
+//     return view('category');
+// }
 }
