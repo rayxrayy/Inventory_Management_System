@@ -225,8 +225,7 @@
               <button><span class="material-icons-sharp">edit</span></button>
               <button><span class="material-icons-sharp">delete</span></button>
             </td>
-            
-            
+          
           </tr>
           <tr class="height1">
             <td class="table_image"> 
