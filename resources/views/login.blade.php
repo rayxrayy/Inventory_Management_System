@@ -13,12 +13,12 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form method="post" action='/login' class="sign-in-form">
+                
                     <div class="login-header">
                         <h1>Welcome to Our Application</h1>
                         <p>Please login to use the platform</p>
                     </div>
-                    <form class="login-form" autocomplete="off">
+                    <form class="login-form" action='{{  route('login') }}' autocomplete="off" method="POST">
                      @csrf
                         <div class="login-form-content">
                             <div class="form-item">
@@ -46,7 +46,7 @@
                             </div>
                             <button name="submit" type="submit">log In</button>
                              <!-- <button onsubmit="return index()" >login</button>  -->
-</div> @if (session('error'))
+                            </div> @if (session('error'))
                             <div class="error-message">{{ session('error') }}</div>
                         @endif
                         <div class="login-form-footer">
@@ -62,13 +62,12 @@
                             </a>
                         </div>
                     </form>
-                </form>
-                <form action="#" class="sign-up-form">
+                
                     <div class="login-header">
                         <h1>Welcome to Our Application</h1>
                         <p>Please login to use the platform</p>
                     </div>
-                </form>
+            
             </div>
         </div>
 

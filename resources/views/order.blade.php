@@ -8,7 +8,8 @@
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
      rel="stylesheet">
  <link rel="stylesheet" href="./style1.css">
-  <!-- Sheet Library -->
+ 
+ <!-- Sheet Library -->
  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
  <title>Document</title>
 </head>
@@ -25,7 +26,7 @@
        </div>
      </div>
 
-     <div class="sidebar">
+     <div class="sidebar" >
        <a href="./dashboard.html" class="">
          <span class="material-icons-sharp">grid_view</span>
          <h3>Dashboard</h3>
@@ -97,46 +98,120 @@
    <!-- Top end -->
 
    <main>
-    <h1>Manage Product</h1>
+    <h1>Manage Order</h1>
 
     <div class="category">
-      <button type="button" id="add_category" onclick="openForm()">Add Product</button>
+      <button type="button" id="add_category" onclick="openForm()">Add Order</button>
       
       <!-- Add Category Form -->
       <div class="form-popup-product" id="myForm">
         <form action="" class="form-container-product">
-          <h1>Add Product</h1>
+          <h1>Add Order</h1>
 
            
-          <div class="theme-toggler theme-product">
-            <span class="material-icons-sharp active">light_mode</span>
-            <span class="material-icons-sharp">dark_mode</span>
+          <div class="theme-product">
+            <span><b>Date: </b> 2023-11-06</span>
+             <span><b>Time: </b> 05:47 pm</span>
+            
           </div>
        
 
 
 
-          <label for="text"><b>Image</b></label>
-          <button class="space"><span class="material-icons-sharp">folder</span></button>
-          <!-- <input type="text" placeholder="Enter Category Name" name="name" required> -->
+          <label class="col-sm-5 control-label" for="text"><b>Client Name</b></label>
+          <input type="text" placeholder="Enter Client Name" name="name" required>
 
-          <label for="text"><b>Product Name</b></label>
-          <input  type="text" placeholder="Enter Product Name" name="name" required>
+          <label for="text"><b>Client Address</b></label>
+          <input type="text" placeholder="Enter Client Address" name="address" required>
       
-          <label for="status"><b>Price</b></label>
-          <input  type="text"  placeholder="Enter Price" name="status" required>
+          <label for="status"><b style="width:50%">Phone</b></label>
+          <input type="text"  placeholder="Enter Client Phone" name="phone" required>
           <!-- <input type="password" placeholder="Enter Password" name="status" required> -->
       
-          <label for="text"><b>Quantity</b></label>
-          <input  type="text" placeholder="Enter Quantity" name="quantity" required>
 
-          <label for="text"><b>Category Name</b></label>
-          <input  type="text" placeholder="Enter Category Name" name="catname" required>
+          <div class="recent-orders belowtable">
+          <table id="category_data">
+            <thead>
+              <tr>
+                
+                <th style="width:50%"><label for="product"><b>Product</b></label></th>
+                <th style="width:10%">Qty</th>
+                <th style="width:10%">Rate</th>
+                <th style="width:20%">Amount</th>
+                <th style="width:10%"><button class="order-btn"><span class="material-icons-sharp">add</span></button></th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr class="height1">
+               
+                <td>
+                  <select id="product" name="product">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="fiat">Fiat</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </td>
+      
+                <!-- <td><input type="text"  placeholder="Enter Client Phone" name="product" required></td> -->
+                <td><input type="number" min="1" placeholder="Enter Qty" name="qty" required></td>
+                <td><input type="text"  placeholder="" name="rate" disabled></td>
+                <td><input type="text"  placeholder="" name="amount" disabled></td>
+                 
+                <td >
+                  <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
+                </td>
+                
+                
+              </tr>
 
-          <label for="text"><b>Availability</b></label>
-          <input  type="text" placeholder="Enter Availability" name="availability" required>
+              <tr class="height1">
+               
+                
+                <td>
+                  <select id="product" name="product">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="fiat">Fiat</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </td>
+                <td><input type="number" min="1" placeholder="Enter Qty" name="qty" required></td>
+                <td><input type="text"  placeholder="" name="rate" disabled></td>
+                <td><input type="text"  placeholder="" name="amount" disabled></td>
+                 
+                <td >
+                  <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
+                </td>
+                
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
 
-          <button  type="submit" class="btn">Save Changes</button>
+
+
+          <label for="text"><b>Gross Amount</b></label>
+          <input type="text" placeholder="Gross Amount" name="gamount" disabled>
+
+          <label for="text"><b>S Charge 13%</b></label>
+          <input type="text" placeholder="Category Name" name="charge" disabled>
+
+          <label for="text"><b>Vat 10%</b></label>
+          <input type="text" placeholder="Vat" name="vat" disabled>
+
+          <label for="text"><b>Discount</b></label>
+          <input type="text" placeholder="Enter Discount" name="discount" required>
+
+          <label for="text"><b>Net Amount</b></label>
+          <input type="text" placeholder="Net Amount" name="namount" disabled>
+
+
+          <button type="submit" class="btn"><span class="material-icons-sharp">print</span></button>
+          <button type="submit" class="btn close">Save Changes</button>
           <button class="close" id="close-btn" onclick="closeForm()">
             <span class="material-icons-sharp">close</span>
           </button>
@@ -153,28 +228,29 @@
     </div>
 
     <div class="recent-orders">
-      <h2>Products</h2>
+      <h2>Orders</h2>
       <table id="category_data">
         <thead>
           <tr>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Qty</th>
-            <th>Availability</th>
-            <th>Action</th>
+            <th>Bill No</th>
+            <th>Client</th>
+            <th>Contact</th>
+            <th>Date Time</th>
+            <th>ProduCt Qty</th>
+            <th>Amount</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr class="height1">
-            <td class="table_image"> 
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
+            <td>123</td>
             <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
+            <td>9864567789</td>
+            <td>06-11-2023 05:29 pm</td>
+            <td>3</td>
+            <td>500.00</td>
             <td class="action">
+              <button><span class="material-icons-sharp">print</span></button>
               <button><span class="material-icons-sharp">edit</span></button>
               <button><span class="material-icons-sharp">delete</span></button>
             </td>
@@ -183,14 +259,14 @@
           </tr>
           <tr class="height1">
            
-            <td class="table_image"> 
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
+            <td>123</td>
             <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
+            <td>9864567789</td>
+            <td>06-11-2023 05:29 pm</td>
+            <td>3</td>
+            <td>500.00</td>
             <td class="action">
+              <button><span class="material-icons-sharp">print</span></button>
               <button><span class="material-icons-sharp">edit</span></button>
               <button><span class="material-icons-sharp">delete</span></button>
             </td>
@@ -199,14 +275,14 @@
           </tr>
           <tr class="height1">
            
-            <td class="table_image"> 
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
+            <td>123</td>
             <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
+            <td>9864567789</td>
+            <td>06-11-2023 05:29 pm</td>
+            <td>3</td>
+            <td>500.00</td>
             <td class="action">
+              <button><span class="material-icons-sharp">print</span></button>
               <button><span class="material-icons-sharp">edit</span></button>
               <button><span class="material-icons-sharp">delete</span></button>
             </td>
@@ -214,14 +290,14 @@
             
           </tr>
           <tr class="height1">
-            <td class="table_image"> 
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
+            <td>123</td>
             <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
+            <td>9864567789</td>
+            <td>06-11-2023 05:29 pm</td>
+            <td>3</td>
+            <td>500.00</td>
             <td class="action">
+              <button><span class="material-icons-sharp">print</span></button>
               <button><span class="material-icons-sharp">edit</span></button>
               <button><span class="material-icons-sharp">delete</span></button>
             </td>
@@ -229,14 +305,14 @@
             
           </tr>
           <tr class="height1">
-            <td class="table_image"> 
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
+            <td>123</td>
             <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
+            <td>9864567789</td>
+            <td>06-11-2023 05:29 pm</td>
+            <td>3</td>
+            <td>500.00</td>
             <td class="action">
+              <button><span class="material-icons-sharp">print</span></button>
               <button><span class="material-icons-sharp">edit</span></button>
               <button><span class="material-icons-sharp">delete</span></button>
             </td>
