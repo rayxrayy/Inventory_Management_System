@@ -1,73 +1,105 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{asset('cssfile/login.css')}}">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+    <title>Sign in Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form method="post" action='/login' class="sign-in-form">
+                    <div class="login-header">
+                        <h1>Welcome to Our Application</h1>
+                        <p>Please login to use the platform</p>
+                    </div>
+                    <form class="login-form" action='{{  route('login') }}' autocomplete="off" method="POST">
                         @csrf
+                        <div class="login-form-content">
+                            <div class="form-item">
+                                <label for="emailForm">Enter Email</label>
+                                <input type="text" id="emailForm" name="email" required>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="form-item">
+                                <label for="passwordForm">Enter Password</label>
+                                <input type="password" id="passwordForm" name="password" required>
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                            <div class="form-item">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="rememberMeCheckbox" checked>
+                                    <label class="checkboxLabel" for="rememberMeCheckbox">Remember me</label>
+                                    <div>
+                                        <a class="btn btn-link" href="">
+                                            <span class="material-icons-sharp ">| Forgot password</span>
+                                        </a>
+                                        {{-- @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                        </a>
+                                        @endif --}}
+                                        {{-- <a>I Forgot Password!</a> --}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
+                            <button name="submit" type="submit">log In</button>
+                            <!-- <button onsubmit="return index()" >login</button>  -->
+                        </div> @if (session('error'))
+                        <div class="error-message">{{ session('error') }}</div>
+                        @endif
+                        {{-- <div class="login-form-footer">
+                            <a href="#">
+                                <img width="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1365px-Facebook_f_logo_%282019%29.svg.png">
+                                Facebook Login 
+                            </a>
+                            <a href="#">
+                                <img width="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5q0FP74VV9wbfwP378_7kj7iDomHuKrxkXsxDdUT28V9dlVMNUe-EMzaLwaFhneeuZI&usqp=CAU">
+                                Google Login 
+                            </a>
+                        </div> --}}
                     </form>
+                </form>
+                <form action="#" class="sign-up-form">
+                    <div class="login-header">
+                        <h1>Welcome to Our Application</h1>
+                        <p>Please login to use the platform</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here ?</h3>
+                    <p>
+                        This is our first project for you. There will be some problem, hope you consider it.
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        View All
+                    </button>
                 </div>
+                <img src="  images/log.svg.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+                    <p>
+                        This is our first project for you. There will be some problem, hope you consider it.
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Sign in
+                    </button>
+                </div>
+                <img src="images/log.svg" class="image" alt="" />
             </div>
         </div>
     </div>
-</div>
-@endsection
+    <script src="{{asset('jsfile/login.js')}}"></script>
+</body>
+</html>

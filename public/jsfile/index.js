@@ -2,10 +2,24 @@ const sideMenu = document.querySelector("aside");
 const menuBtn = document.querySelector("#menu-btn");
 const closeBtn = document.querySelector("#close-btn");
 const themeToggler = document.querySelector(".theme-toggler");
+
 const sideBar = document.querySelector(".sidebar");
 // show sidebar
 menuBtn.addEventListener('click', () => {
     sideMenu.style.display = 'block';
+})
+
+//close sidebar
+closeBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'none';
+})
+
+//change theme
+themeToggler.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme-variables');
+
+    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
 })
 
 //change navbar onclick
@@ -22,18 +36,8 @@ sidebarItems.forEach((item) => {
 
 
 
-//sideBar.addEventListener('click', () => {
-    // document.getElementsByTagName(a).className = "active";
-    // document.body.classList.toggle('active');
 
-    // sideBar.querySelector('span:nth-child(1)').classList.toggle('active');
-    // sideBar.querySelector('span:nth-child(2)').classList.toggle('active');
-    
-//})
 
-// function addClass() {
-//     document.getElementsByTagName(a).className = "active";
-// }
 
 //Add Category
 function openForm() {
@@ -101,35 +105,6 @@ uploadBtn.addEventListener('click', () => {
 
 
 
-// var uploaded_image = "";
-// function importData() {
-//     let input = document.createElement('input');
-//     input.type = 'file';
-//     input.accept = 'image/png, image/jpg';
-//     input.onchange = _ => {
-//       // you can use this method to get file and perform respective operations
-//               let files =   Array.from(input.files);
-//               console.log(files);
-//               const reader = new FileReader();
-//               reader.addEventListener("load", () => {
-//                 uploaded_image = reader.result;
-//                 document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
-//               })
-//               reader.readAsDataURL(this.files[0]);
-
-//           };
-//     input.click();
-    
-//   }
-//   const image_input = document.querySelector("#image_input");
-//   image_input.addEventListener("change", function(){
-//     const reader = new FileReader();
-//               reader.addEventListener("load", () => {
-//                 uploaded_image = reader.result;
-//                 document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
-//               })
-//               reader.readAsDataURL(this.files[0]);
-//   })
 
 
 
@@ -153,3 +128,83 @@ function printDiv(divName) {
 
     document.body.innerHTML = originalContents;
 }
+
+
+
+
+
+
+
+//add row to table (order form table)
+
+// select the table and the add button
+var table = document.getElementById("my-table");
+var addButton = document.getElementById("add-row-btn");
+
+// add an event listener to the button
+addButton.addEventListener("click", function() {
+  // create a new row element and set its class name
+  var newRow = table.insertRow();
+  newRow.className = "height1";
+
+  // add cells to the row and set their content and attributes
+  var productCell = newRow.insertCell();
+  var productSelect = document.createElement("select");
+  productSelect.name = "product";
+  var option1 = document.createElement("option");
+  option1.value = "volvo";
+  option1.text = "Volvo";
+  var option2 = document.createElement("option");
+  option2.value = "saab";
+  option2.text = "Saab";
+  var option3 = document.createElement("option");
+  option3.value = "fiat";
+  option3.text = "Fiat";
+  var option4 = document.createElement("option");
+  option4.value = "audi";
+  option4.text = "Audi";
+  productSelect.add(option1);
+  productSelect.add(option2);
+  productSelect.add(option3);
+  productSelect.add(option4);
+  productCell.appendChild(productSelect);
+
+  var qtyCell = newRow.insertCell();
+  var qtyInput = document.createElement("input");
+  qtyInput.type = "number";
+  qtyInput.min = "1";
+  qtyInput.placeholder = "Enter Qty";
+  qtyInput.name = "qty";
+  qtyInput.required = true;
+  qtyCell.appendChild(qtyInput);
+
+  var rateCell = newRow.insertCell();
+  var rateInput = document.createElement("input");
+  rateInput.type = "text";
+  rateInput.placeholder = "";
+  rateInput.name = "rate";
+  rateInput.disabled = true;
+  rateCell.appendChild(rateInput);
+
+  var amountCell = newRow.insertCell();
+  var amountInput = document.createElement("input");
+  amountInput.type = "text";
+  amountInput.placeholder = "";
+  amountInput.name = "amount";
+  amountInput.disabled = true;
+  amountCell.appendChild(amountInput);
+
+  var deleteCell = newRow.insertCell();
+  var deleteButton = document.createElement("button");
+  deleteButton.className = "order-btn";
+  var deleteIcon = document.createElement("span");
+  deleteIcon.className = "material-icons-sharp";
+  deleteIcon.textContent = "delete";
+  deleteButton.appendChild(deleteIcon);
+  deleteCell.appendChild(deleteButton);
+
+  // add an event listener to the delete button
+  deleteButton.addEventListener("click", function() {
+    newRow.remove();
+  });
+});

@@ -147,6 +147,6 @@
    
   </div>
  </div>
- <script src="./index.js"></script>
+<script src="{{asset('jsfile/index.js')}}"></script>
 </body>
 </html>

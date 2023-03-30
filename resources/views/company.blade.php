@@ -1,84 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!--Material Icon-->
- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
-     rel="stylesheet">
-     <!-- styles -->
-
- <link rel="stylesheet" href="./style1.css">
- <!-- <link rel="stylesheet" href="./stylecompany.css"> -->
-<!-- cdn fontawesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-  <!-- Sheet Library -->
- <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
- <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Material Icon-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('cssfile/styles.css') }}">
+    <title>Document</title>
 </head>
-<body>
- <div class="container">
-   <aside>
-     <div class="top">
-       <div class="logo">
-         <img src="./images/logo.png" alt="logo">
-         <h2>Cargo<span class="danger">REX</span></h2>
-       </div>
-       <div class="close" id="close-btn">
-         <span class="material-icons-sharp">close</span>
-       </div>
-     </div>
 
-     <div class="sidebar">
-       <a href="./dashboard.html" class="">
-         <span class="material-icons-sharp">grid_view</span>
-         <h3>Dashboard</h3>
-       </a>
-       <a href="./category.html" class="">
-         <span class="material-icons-sharp">category</span>
-         <h3>Category</h3>
-       </a>
-       <a href="./order.html" class="">
-         <span class="material-icons-sharp">receipt_long</span>
-         <h3>Orders</h3>
-       </a>
-       <!-- <a href="#">
-         <span class="material-icons-sharp">insights</span>
-         <h3>Products</h3>
-       </a> -->
-       <!-- <a href="#">
-         <span class="material-icons-sharp">mail_outline</span>
-         <h3>Messages</h3>
-         <span class="message-count">26</span>
-       </a> -->
-       <a href="./product.html" class="">
-         <span class="material-icons-sharp">inventory</span>
-         <h3>Products</h3>
-       </a>
-       <a href="./members.html" class="">
-         <span class="material-icons-sharp">groups</span>
-         <h3>Members</h3>
-       </a>
-       <a href="./company.html" class="active">
-         <span class="material-icons-sharp">apartment</span>
-         <h3>Company</h3>
-       </a>
-       <a href="./setting.html" class="">
-         <span class="material-icons-sharp">settings</span>
-         <h3>Settings</h3>
-       </a>
-       <!-- <a href="#">
-         <span class="material-icons-sharp">add</span>
-         <h3>Add Product</h3>
-       </a> -->
-       <a href="#">
-         <span class="material-icons-sharp">logout</span>
-         <h3>Log out</h3>
-       </a>
-     </div>
-   </aside>
-    <!-- aside end -->
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="./images/logo.png" alt="logo">
+                    <h2>Cargo<span class="danger">REX</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="./dashboard" class="active">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a id="category" href="./category">
+                    <span class="material-icons-sharp">category</span>
+                    <h3>Category</h3>
+                </a>
+                <a id="order" href="./order">
+                    <span class="material-icons-sharp">receipt_long</span>
+                    <h3>Orders</h3>
+                </a>
+                <a id="product" href="./product">
+                    <span class="material-icons-sharp">inventory</span>
+                    <h3>Products</h3>
+                </a>
+                <a id="member" href="./member">
+                    <span class="material-icons-sharp">groups</span>
+                    <h3>Members</h3>
+                </a>
+                <a id="company" href="./company">
+                    <span class="material-icons-sharp">apartment</span>
+                    <h3>Company</h3>
+                </a>
+                <a id="setting" href="./setting">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a id="logout" href="{{ route('logout') }}">
+                    <span class="material-icons-sharp ">logout</span>
+                    <h3>Log out</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- aside end -->
     <div class="right">
         <div class="top">
           <button id="menu-btn">
@@ -183,6 +164,6 @@
    
   </div>
  </div>
- <script src="./index.js"></script>
+<script src="{{asset('jsfile/index.js')}}"></script>
 </body>
 </html>

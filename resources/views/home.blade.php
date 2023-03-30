@@ -37,15 +37,6 @@
                     <span class="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
-                <!-- <a href="#">
-          <span class="material-icons-sharp">insights</span>
-          <h3>Products</h3>
-        </a> -->
-                <!-- <a href="#">
-          <span class="material-icons-sharp">mail_outline</span>
-          <h3>Messages</h3>
-          <span class="message-count">26</span>
-        </a> -->
                 <a href="#">
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
@@ -62,12 +53,8 @@
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
-                <!-- <a href="#">
-          <span class="material-icons-sharp">add</span>
-          <h3>Add Product</h3>
-        </a> -->
                 <a id="logout" href="#">
-                    <!-- <button name="submit" class="material-icons-sharp" type="submit">logout</button> -->
+                 
                     <span class="material-icons-sharp ">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -95,6 +82,7 @@
                 </div>
             </div>
             <!-- Top end -->
+
         </div>
     </div>   
      <script src="{{ asset('jsfile/index.js') }}"></script>

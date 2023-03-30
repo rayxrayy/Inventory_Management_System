@@ -7,7 +7,7 @@
  <!--Material Icon-->
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
      rel="stylesheet">
- <link rel="stylesheet" href="./style1.css">
+ <link rel="stylesheet" href="./styles.css">
  
  <!-- Sheet Library -->
  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
@@ -35,7 +35,7 @@
          <span class="material-icons-sharp">category</span>
          <h3>Category</h3>
        </a>
-       <a href="./order.html">
+       <a href="./order">
          <span class="material-icons-sharp">receipt_long</span>
          <h3>Orders</h3>
        </a>
@@ -334,6 +334,6 @@
    
   </div>
  </div>
- <script src="./index.js"></script>
+<script src="{{asset('jsfile/index.js')}}"></script>
 </body>
 </html>
