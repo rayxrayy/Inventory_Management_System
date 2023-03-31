@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class imscontroller extends Controller
 {
     public function index(Request $req){
-    // echo "hello";
     return view('dashboard');
 }
 

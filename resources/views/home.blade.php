@@ -25,36 +25,35 @@
             </div>
 
             <div class="sidebar">
-                <a href="./dashboard.html" class="">
+                <a href="./dashboard" class="active">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="./category.html" class="active">
+                <a id="category" href="./category">
                     <span class="material-icons-sharp">category</span>
                     <h3>Category</h3>
                 </a>
-                <a href="#">
+                <a id="order" href="./order">
                     <span class="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
-                <a href="#">
+                <a id="product" href="./product">
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
-                <a href="#">
+                <a id="member" href="./member">
                     <span class="material-icons-sharp">groups</span>
                     <h3>Members</h3>
                 </a>
-                <a href="#">
+                <a id="company" href="./company">
                     <span class="material-icons-sharp">apartment</span>
                     <h3>Company</h3>
                 </a>
-                <a href="#">
+                <a id="setting" href="./setting">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>
-                <a id="logout" href="#">
-                 
+                <a id="logout" href="{{ route('logout') }}">
                     <span class="material-icons-sharp ">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -62,7 +61,8 @@
         </aside>
         <!-- aside end -->
 
-        <div class="right">
+
+       <div class="right">
             <div class="top">
                 <button id="menu-btn">
                     <span class="material-icons-sharp">menu</span>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Daniel</b></p>
+                        <p>Hey, <b>{{ auth()->user()->name }}</b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">
@@ -84,7 +84,7 @@
             <!-- Top end -->
 
         </div>
-    </div>   
+    </div>
      <script src="{{ asset('jsfile/index.js') }}"></script>
 </body>
 

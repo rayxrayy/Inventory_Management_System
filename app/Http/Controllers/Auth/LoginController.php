@@ -20,7 +20,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-    
+
 
     /**
      * Where to redirect users after login.
@@ -37,5 +37,8 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    public function checkpassword(){
+        // database ma vako lai tanne and login passwordfield ma aako password lai hash garne ani then check both hash password
     }
 }

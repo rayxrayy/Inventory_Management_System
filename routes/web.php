@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\imscontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\resetpasswordcontroller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +41,7 @@ Route::get('/login',[LoginController::class,'showLoginForm']);
 // Auth::routes();
 Route::middleware('auth')->group(function(){
     Route::get('/dashboard', [imscontroller::class, 'index'])->name('home');
-    Route::get('/category', [imscontroller::class, 'category'])->name('category');
+    // Route::get('/category', [imscontroller::class, 'category'])->name('category');
     Route::get('/order', [imscontroller::class, 'order'])->name('order');
     Route::get('/product', [imscontroller::class, 'product'])->name('product');
     Route::get('/member', [imscontroller::class, 'member'])->name('member');
@@ -47,6 +49,12 @@ Route::middleware('auth')->group(function(){
     Route::get('/setting', [imscontroller::class, 'setting'])->name('setting');
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 });
+
+Route::get('/category',[CategoryController::class,'index']);
+Route::post('/category',[CategoryController::class,'store']);
+// Route::get('/add-category','CategoryController@create');
+// Route::get('/add-category','CategoryController@create');
+// Route::get('/add-category','CategoryController@store');
 
 
 Route::get('/test',function(){
@@ -67,7 +75,7 @@ Route::post('/forgot-password', function (Request $request) {
     $status = Password::sendResetLink(
         $request->only('email')
     );
- 
+
     return $status === Password::RESET_LINK_SENT
         ? back()->with(['status' => __($status)])
         : back()->withErrors(['email' => __($status)]);
@@ -84,20 +92,21 @@ Route::post('/reset-password', function (Request $request) {
         'email' => 'required|email',
         'password' => 'required|min:8|confirmed',
     ]);
- 
+
     $status = Password::reset(
-        $request->only('email', 'password', 'password_confirmation', 'token'),
+        $request->only('email', 'password', 'password', 'token'),
         function ($user, $password) {
             $user->forceFill([
                 'password' => Hash::make($password)
             ])->setRememberToken(Str::random(60));
- 
+
             $user->save();
- 
+
             event(new PasswordReset($user));
         }
     );
- 
+
+
     return $status === Password::PASSWORD_RESET
         ? redirect()->route('login')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);

@@ -24,7 +24,7 @@
 
     --box-shadow: 0 2rem 3rem var(--color-light);
 
-   
+
 }
 
  /* Dark theme variables */
@@ -139,11 +139,11 @@ b {
 
 aside {
     height: 100vh;
-   
+
 }
 
 aside.top {
-   
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -163,7 +163,7 @@ aside .logo {
 aside .logo img {
     width: 2rem;
     height: 2rem;
-} 
+}
 
 aside .close {
     display: none;
@@ -172,7 +172,7 @@ aside .close {
 /*Side Bar*/
 
 aside .sidebar {
-    
+
     display: flex;
     flex-direction: column;
     height: 86vh;
@@ -279,7 +279,7 @@ main .insights {
 }
 
 main .insights .a{
-    
+
     margin-top: 30px;
 }
 
@@ -349,7 +349,7 @@ main .insights svg {
 }
 
 main .insights svg circle {
-    
+
     fill: none;
     stroke: var(--color-primary);
     stroke-width: 15;
@@ -453,7 +453,7 @@ main .recent-orders a {
     display: flex;
     justify-content: end;
     gap: 2rem;
-   
+
 }
 
 .right .top button {
@@ -495,12 +495,12 @@ main .recent-orders a {
 /* right total income part main2*/
 /*
 .main2 .members {
-   
+
 
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1.6rem;
-    /* position: absolute; top: 17rem; 
+    /* position: absolute; top: 17rem;
 }
 
 .main2 .members > div {
@@ -561,7 +561,7 @@ main .recent-orders a {
     stroke-width: 14;
     stroke-linecap: round;
     transform: translate(5px, 5px);
-    /* stroke-dasharray: 110; stroke-dashoffset: 92; 
+    /* stroke-dasharray: 110; stroke-dashoffset: 92;
 }
 
 .main2 .members .sales svg circle {
@@ -626,13 +626,13 @@ main .recent-orders a {
 }
 
 .main2 table tbody td span {
-     
+
         background: var(--color-success);
         padding: 0.2rem;
         border-radius: 50%;
         color: var(--color-white);
         font-size: 1.3rem;
-     
+
 }
 
 .main2 table tbody tr:last-child td {
@@ -751,7 +751,7 @@ main .recent-orders a {
 /* Media  Queries */
 
 @media screen and (max-width: 1200px) {
-    
+
     .container {
         width: 94%;
         grid-template-columns: 7rem auto 23rem;
@@ -915,7 +915,7 @@ main .recent-orders a {
         color: var(--color-dark);
         position: absolute;
         left: 1rem;
-        
+
     }
 
     .right .top button span {
@@ -965,11 +965,11 @@ main .recent-orders a {
     width: 200%;
     height: 110%;
     rotate: -2deg;
-    
-    background: #1b1526; 
-} 
 
-/* in style1.css 
+    background: #1b1526;
+}
+
+/* in style1.css
  .banner h2 {
     white-space: nowrap;
     margin: 0 0 4px;
@@ -981,7 +981,7 @@ main .recent-orders a {
     font-weight: 400;
     margin: 0;
     color: rgb(255 255 255 / 57%);
-} 
+}
 
 @keyframes morph {
     0%, 100% {
