@@ -62,12 +62,7 @@
         <!-- aside end -->
         <main>
             <h1>Dashboard</h1>
-            <!-- <div class="date">
-        <input type="date">
-      </div> -->
-
             <div class="insights">
-
                 <div class="sales">
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
@@ -76,9 +71,6 @@
                             <h1>25,000</h1>
                         </div>
                         <div class="progress">
-                            <!-- <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg> -->
                             <div class="number">
                                 <img src="./images/sales.png" alt="">
                                 <!-- <p>81%</p> -->
@@ -88,7 +80,6 @@
                     <!-- <small class="text-muted">Last 24 Hours</small> -->
                 </div>
                 <!-- End Sales -->
-
                 <div class="expenses">
                     <span class="material-icons-sharp">bar_chart</span>
                     <div class="middle">
@@ -97,9 +88,6 @@
                             <h1>25,000</h1>
                         </div>
                         <div class="progress">
-                            <!-- <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg> -->
                             <div class="number">
                                 <img src="./images/category.jpg" alt="">
                                 <!-- <p>62%</p> -->
@@ -118,9 +106,6 @@
                             <h1>25,675</h1>
                         </div>
                         <div class="progress">
-                            <!-- <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg> -->
                             <div class="number">
                                 <img src="./images/product.jpg" alt="">
                                 <!-- <p>44%</p> -->
@@ -139,11 +124,7 @@
                             <h1>5</h1>
                         </div>
                         <div class="progress">
-                            <!-- <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg> -->
-
-                            <div class="number">
+                    <div class="number">
                                 <img src="./images/teami.jpg" alt="">
                                 <!-- <p>44%</p> -->
                             </div>
@@ -160,10 +141,7 @@
                             <h1>25,675</h1>
                         </div>
                         <div class="progress">
-                            <!-- <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg> -->
-                            <div class="number">
+                 <div class="number">
                                 <img src="./images/unorder.jpg" alt="">
                                 <!-- <p>44%</p> -->
                             </div>
@@ -180,10 +158,7 @@
                             <h1>25,675</h1>
                         </div>
                         <div class="progress">
-                            <!-- <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg> -->
-                            <div class="number">
+                <div class="number">
                                 <img src="./images/order.jpg" alt="">
                                 <!-- <p>44%</p> -->
                             </div>
@@ -194,65 +169,8 @@
 
             </div>
             <!-- End of insights -->
-
-
-
-            <!-- <div class="recent-orders">
-        <h2>Recent Orders</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Product Name</th>
-              <th>Product Number</th>
-              <th>Payment</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Foldable</td>
-              <td>87586</td>
-              <td>Due</td>
-              <td class="warning">Pending</td>
-              <td class="primary">Details</td>
-            </tr>
-            <tr>
-              <td>Foldable</td>
-              <td>87586</td>
-              <td>Due</td>
-              <td class="warning">Pending</td>
-              <td class="primary">Details</td>
-            </tr>
-            <tr>
-              <td>Foldable</td>
-              <td>87586</td>
-              <td>Due</td>
-              <td class="warning">Pending</td>
-              <td class="primary">Details</td>
-            </tr>
-            <tr>
-              <td>Foldable</td>
-              <td>87586</td>
-              <td>Due</td>
-              <td class="warning">Pending</td>
-              <td class="primary">Details</td>
-            </tr>
-            <tr>
-              <td>Foldable</td>
-              <td>87586</td>
-              <td>Due</td>
-              <td class="warning">Pending</td>
-              <td class="primary">Details</td>
-            </tr>
-          </tbody>
-        </table>
-        <a href="#">Show All</a>
-      </div> -->
         </main>
         <!-- main end -->
-
-
 
         <div class="right">
             <div class="top">
@@ -274,30 +192,6 @@
                 </div>
             </div>
             <!-- Top end -->
-
-
-            <!-- <div class="main2">
-    <div class="members">
-      <div class="sales">
-        <span class="material-icons-sharp">analytics</span>
-        <div class="middle">
-          <div class="left">
-            <h3>Total Sales</h3>
-            <h1>25,000</h1>
-          </div>
-          <div class="progress">
-            <svg>
-              <circle cx="38" cy="38" r="36"></circle>
-            </svg>
-            <div class="number">
-              <p>81%</p>
-            </div>
-          </div>
-        </div>
-        <small class="text-muted">Last 24 Hours</small>
-      </div>
-    </div>
-      member end -->
 
             <div class="main2">
                 <div class="recent-orders">
@@ -370,63 +264,7 @@
                 </div>
             </div>
             <!-- end of recent updates -->
-
-
-
-            <!-- <div class="sales-analytics">
-      <h2>Sales Analytics</h2>
-      <div class="item online">
-        <div class="icon">
-          <span class="material-icons-sharp">shopping_cart</span>
         </div>
-        <div class="right">
-          <div class="info">
-            <h3>ONLINE ORDERS</h3>
-            <small class="text-muted">Last 24 Hours</small>
-          </div>
-          <h5 class="success">+39%</h5>
-          <h3>3849</h3>
-        </div>
-      </div>
-      <div class="item offline">
-        <div class="icon">
-          <span class="material-icons-sharp">local_mall</span>
-        </div>
-        <div class="right">
-          <div class="info">
-            <h3>OFFLINE ORDERS</h3>
-            <small class="text-muted">Last 24 Hours</small>
-          </div>
-          <h5 class="danger">-17%</h5>
-          <h3>1100</h3>
-        </div>
-      </div>
-      <div class="item customers">
-        <div class="icon">
-          <span class="material-icons-sharp">person</span>
-        </div>
-        <div class="right">
-          <div class="info">
-            <h3>NEW CUSTOMERS</h3>
-            <small class="text-muted">Last 24 Hours</small>
-          </div>
-          <h5 class="success">+25%</h5>
-          <h3>849</h3>
-        </div>
-      </div>
-      
-      
-
-      <div class="item add-product">
-        <div>
-          <span class="material-icons-sharp">add</span>
-          <h3>Add Product</h3>
-        </div>
-        
-      </div>
-      </div> -->
-        </div>
-    </div>
     </div>
     <script src="{{ asset('jsfile/index.js') }}"></script>
 </body>

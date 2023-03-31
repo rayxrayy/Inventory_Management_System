@@ -2,7 +2,7 @@ const sideMenu = document.querySelector("aside");
 const menuBtn = document.querySelector("#menu-btn");
 const closeBtn = document.querySelector("#close-btn");
 const themeToggler = document.querySelector(".theme-toggler");
-
+const logoutbtn = document.querySelector(".logout");
 const sideBar = document.querySelector(".sidebar");
 // show sidebar
 menuBtn.addEventListener('click', () => {
@@ -34,23 +34,14 @@ sidebarItems.forEach((item) => {
   });
 });
 
-
-
-
-
-
 //Add Category
 function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
-  
+
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
   }
-
-
-
-
 
 // HTML to Excel
 function html_table_to_excel(type)

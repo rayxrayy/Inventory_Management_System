@@ -25,5 +25,7 @@
     </main>
         @include('layouts.includes.header')
 </div>
+<script src="{{ asset('jsfile/index.js') }}"></script>
 </body>
+
 </html>
