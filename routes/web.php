@@ -8,6 +8,8 @@ use App\Http\Controllers\imscontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\resetpasswordcontroller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,6 +33,9 @@ Route::get('/',function(){
     if(Auth::user()){
         return view('dashboard');
     }
+    else{
+        $message="Incorrect Password";
+    }
     return view('login');
 });
 
@@ -42,20 +47,21 @@ Route::get('/login',[LoginController::class,'showLoginForm']);
 Route::middleware('auth')->group(function(){
     Route::get('/dashboard', [imscontroller::class, 'index'])->name('home');
     // Route::get('/category', [imscontroller::class, 'category'])->name('category');
-    Route::get('/order', [imscontroller::class, 'order'])->name('order');
-    Route::get('/product', [imscontroller::class, 'product'])->name('product');
-    Route::get('/member', [imscontroller::class, 'member'])->name('member');
-    Route::get('/company', [imscontroller::class, 'company'])->name('company');
-    Route::get('/setting', [imscontroller::class, 'setting'])->name('setting');
-    Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 });
 
 Route::get('/category',[CategoryController::class,'index']);
 Route::post('/category',[CategoryController::class,'store']);
-// Route::get('/add-category','CategoryController@create');
-// Route::get('/add-category','CategoryController@create');
-// Route::get('/add-category','CategoryController@store');
+Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
+Route::get('/order', [imscontroller::class, 'order']);
+// Route::post('/order',[OrderController::class,'store']);
+Route::get('/product', [ProductController::class, 'index']);
+Route::post('/product',[ProductController::class,'store']);
+Route::get('/member', [imscontroller::class, 'member'])->name('member');
+Route::get('/company', [imscontroller::class, 'company'])->name('company');
+Route::get('/setting', [imscontroller::class, 'setting'])->name('setting');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 Route::get('/test',function(){
     $d = User::all();
@@ -111,23 +117,5 @@ Route::post('/reset-password', function (Request $request) {
         ? redirect()->route('login')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
-
-// Route::get('/eset-password',[resetpasswordcontroller::class,'resetpassword']);
-
-// Route::get('/loggedin',function(Request $request){
-//     $credentials = $request->only(['email', 'password']);
-//     return redirect('/dashboard');
-
-//     $user = User::where('email', $credentials['email'])
-//                 ->where('password', $credentials['password'])
-//                 ->first();
-// print_r($credentials['email']);
-//     if ($user) {
-//         // Auth::login($user);
-//         return redirect('/dashboard');
-//     } else {
-//         return back()->withErrors(['credentials' => 'Invalid username or password']);
-    // }
-// });
 
 ?>

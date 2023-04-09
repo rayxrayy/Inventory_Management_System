@@ -66,35 +66,39 @@ function html_table_to_excel(type)
 
 //image load product page
 
-const uploadBtn = document.getElementById('uploadBtn');
-const imageContainer = document.getElementById('imageContainer');
+// const uploadBtn = document.getElementById('uploadBtn');
+// const imageContainer = document.getElementById('imageContainer');
 
-uploadBtn.addEventListener('click', () => {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = 'image/jpg , image/png';
+// uploadBtn.addEventListener('click', () => {
+//   const input = document.createElement('input');
+//   input.type = 'file';
+//   input.accept = 'image/jpg , image/png';
 
-  input.addEventListener('change', (event) => {
-    const file = event.target.files[0];
+//   input.addEventListener('change', (event) => {
+//     const file = event.target.files[0];
 
-    const reader = new FileReader();
-    reader.addEventListener('load', (event) => {
-      const image = new Image();
-      image.src = event.target.result;
-      image.style.maxWidth = '100%';
-      image.style.maxHeight = '100%';
-      imageContainer.innerHTML = '';
-      imageContainer.appendChild(image);
-      imageContainer.style.display = 'block';
-    });
+//     const reader = new FileReader();
+//     reader.addEventListener('load', (event) => {
+//       const image = new Image();
+//       image.src = event.target.result;
+//       image.style.maxWidth = '100%';
+//       image.style.maxHeight = '100%';
+//       imageContainer.innerHTML = '';
+//       imageContainer.appendChild(image);
+//       imageContainer.style.display = 'block';
+//     });
 
-    reader.readAsDataURL(file);
-  });
+//     reader.readAsDataURL(file);
+//   });
 
-  input.click();
-});
+//   input.click();
+// });
 
-
+//delete button of category page
+// function deleteRow(r) {
+//     var i = r.parentNode.parentNode.rowIndex;
+//     document.getElementById("category_data").deleteRow(i);
+//   }
 
 
 
@@ -109,16 +113,16 @@ function editProfile() {
 
 
 //print bill from order page
-function printDiv(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    var originalContents = document.body.innerHTML;
+// function printDiv(divName) {
+//     var printContents = document.getElementById(divName).innerHTML;
+//     var originalContents = document.body.innerHTML;
 
-    document.body.innerHTML = printContents;
+//     document.body.innerHTML = printContents;
 
-    window.print();
+//     window.print();
 
-    document.body.innerHTML = originalContents;
-}
+//     document.body.innerHTML = originalContents;
+// }
 
 
 

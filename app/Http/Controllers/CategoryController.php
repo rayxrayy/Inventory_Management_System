@@ -21,4 +21,18 @@ class CategoryController extends Controller
         return redirect('/category');
         // dd($request);
     }
+    // Show the form for editing a category
+    public function edit($category)
+    {
+        $category = Category::where('name', $category)->first();
+        return view('category', compact('category'));
+    }
+
+    // Delete a category
+    public function destroy($category)
+    {
+        $category = Category::where('name', $category)->first();
+        $category->delete();
+        return response()->json(['success' => true]);
+    }
 }

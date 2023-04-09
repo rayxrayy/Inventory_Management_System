@@ -16,14 +16,14 @@ sign_in_btn.addEventListener("click", () => {
 //     // Get the email and password values from local storage if they exist
 //     const email = localStorage.getItem('email');
 //     const password = localStorage.getItem('password');
-  
+
 //     // If the email and password values exist, populate the input fields
 //     if (email && password) {
 //       document.getElementById('emailForm').value = email;
 //       document.getElementById('passwordForm').value = password;
 //     }
 //   }
-  
+
 //   // Add an event listener to the "Remember me" checkbox to update local storage when it's checked or unchecked
 //   document.getElementById('rememberMeCheckbox').addEventListener('change', function() {
 //     if (this.checked) {
@@ -34,10 +34,9 @@ sign_in_btn.addEventListener("click", () => {
 //       // Remove the email and password values from local storage
 //       localStorage.removeItem('email');
 //       localStorage.removeItem('password');
-  
+
 //       // Clear the email and password fields
 //       document.getElementById('emailForm').value = '';
 //       document.getElementById('passwordForm').value = '';
 //     }
 //   });
-  

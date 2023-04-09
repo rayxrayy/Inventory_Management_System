@@ -10,31 +10,31 @@
             </div>
 
             <div class="sidebar">
-                <a href="./dashboard" class="active">
+                <a href="./dashboard" class="">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a id="category" href="./category">
+                <a id="category" href="./category" class="active">
                     <span class="material-icons-sharp">category</span>
                     <h3>Category</h3>
                 </a>
-                <a id="order" href="#">
+                <a id="order" href="./order" class="">
                     <span class="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
-                <a id="product" href="#">
+                <a id="product" href="./product" class="">
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
-                <a id="member" href="#">
+                <a id="member" href="./member" class="">
                     <span class="material-icons-sharp">groups</span>
                     <h3>Members</h3>
                 </a>
-                <a id="company" href="#">
+                <a id="company" href="./company" class="">
                     <span class="material-icons-sharp">apartment</span>
                     <h3>Company</h3>
                 </a>
-                <a id="setting" href="#">
+                <a id="setting" href="./setting" class="">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>

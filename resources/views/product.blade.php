@@ -8,7 +8,8 @@
 
       <!-- Add Category Form -->
       <div class="form-popup-product" id="myForm">
-        <form action="" class="form-container-product">
+        <form method="post" action="" class="form-container-product">
+          @csrf
           <h1>Add Product</h1>
 
 
@@ -70,84 +71,24 @@
           </tr>
         </thead>
         <tbody>
+
+         @foreach ($products as $product )
           <tr class="height1">
-            <td class="table_image">
+            {{-- <td class="table_image">
                 <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
-            <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
+            </td> --}}
+            <td>{{ $product->name }}</td>
+            <td>{{ $product->price }}</td>
+            <td>{{ $product->quantity }}</td>
+            <td>{{ $product->categoryname }}</td>
+            <td>{{ $product->availability }}</td>
             <td class="action">
               <button><span class="material-icons-sharp">edit</span></button>
               <button><span class="material-icons-sharp">delete</span></button>
             </td>
-
-
           </tr>
-          <tr class="height1">
-
-            <td class="table_image">
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
-            <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
-            <td class="action">
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
-            </td>
-
-
-          </tr>
-          <tr class="height1">
-
-            <td class="table_image">
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
-            <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
-            <td class="action">
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
-            </td>
-
-
-          </tr>
-          <tr class="height1">
-            <td class="table_image">
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
-            <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
-            <td class="action">
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
-            </td>
-
-          </tr>
-          <tr class="height1">
-            <td class="table_image">
-                <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td>
-            <td>Foldable</td>
-            <td>86</td>
-            <td>8</td>
-            <td>Active</td>
-            <td class="action">
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
-            </td>
-
-
-          </tr>
+          @endforeach
         </tbody>
       </table>
-      <!-- <a href="#">Show All</a> -->
     </div>
    @endsection

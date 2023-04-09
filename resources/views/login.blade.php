@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +21,7 @@
                         @csrf
                         <div class="login-form-content">
                             <div class="form-item">
+
                                 <label for="emailForm">Enter Email</label>
                                 <input type="text" id="emailForm" name="email" required>
 
