@@ -8,10 +8,10 @@
 
       <!-- Add Category Form -->
       <div class="form-popup-product" id="myForm">
-        <form action="" class="form-container-product">
+        <form action="/order" class="form-container-product" method="POST">
           <h1>Add Order</h1>
 
-
+          @csrf
           <div class="theme-product">
             <span><b>Date: </b> 2023-11-06</span>
              <span><b>Time: </b> 05:47 pm</span>
@@ -49,7 +49,7 @@
               <tr class="height1">
 
                 <td>
-                  <select id="product" name="product">
+                  <select id="product" name="product[]">
                   <option value="volvo">Volvo</option>
                   <option value="saab">Saab</option>
                   <option value="fiat">Fiat</option>
@@ -66,14 +66,11 @@
                   <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
                 </td>
 
-
               </tr>
 
               <tr class="height1">
-
-
                 <td>
-                  <select id="product" name="product">
+                  <select id="product" name="product[]">
                   <option value="volvo">Volvo</option>
                   <option value="saab">Saab</option>
                   <option value="fiat">Fiat</option>
@@ -145,13 +142,15 @@
           </tr>
         </thead>
         <tbody>
+          @if(isset($orders))
+          @foreach($orders as $index => $order)
           <tr class="height1">
-            <td>123</td>
-            <td>Foldable</td>
-            <td>9864567789</td>
-            <td>06-11-2023 05:29 pm</td>
+            <td>{{$order->id}}</td>
+            <td>{{ $order->client_name}}</td>
+            <td>{{ $order->client_phone}}</td>
+            <td>{{ $order->created_at}}</td>
             <td>3</td>
-            <td>500.00</td>
+            <td>{{ $order->net_amount}}</td>
             <td class="action">
               <button><span class="material-icons-sharp">print</span></button>
               <button><span class="material-icons-sharp">edit</span></button>
@@ -160,68 +159,9 @@
 
 
           </tr>
-          <tr class="height1">
-
-            <td>123</td>
-            <td>Foldable</td>
-            <td>9864567789</td>
-            <td>06-11-2023 05:29 pm</td>
-            <td>3</td>
-            <td>500.00</td>
-            <td class="action">
-              <button><span class="material-icons-sharp">print</span></button>
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
-            </td>
-
-
-          </tr>
-          <tr class="height1">
-
-            <td>123</td>
-            <td>Foldable</td>
-            <td>9864567789</td>
-            <td>06-11-2023 05:29 pm</td>
-            <td>3</td>
-            <td>500.00</td>
-            <td class="action">
-              <button><span class="material-icons-sharp">print</span></button>
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
-            </td>
-
-
-          </tr>
-          <tr class="height1">
-            <td>123</td>
-            <td>Foldable</td>
-            <td>9864567789</td>
-            <td>06-11-2023 05:29 pm</td>
-            <td>3</td>
-            <td>500.00</td>
-            <td class="action">
-              <button><span class="material-icons-sharp">print</span></button>
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
-            </td>
-
-
-          </tr>
-          <tr class="height1">
-            <td>123</td>
-            <td>Foldable</td>
-            <td>9864567789</td>
-            <td>06-11-2023 05:29 pm</td>
-            <td>3</td>
-            <td>500.00</td>
-            <td class="action">
-              <button><span class="material-icons-sharp">print</span></button>
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
-            </td>
-
-
-          </tr>
+          @endforeach
+          @endif
+  
         </tbody>
       </table>
       <!-- <a href="#">Show All</a> -->
