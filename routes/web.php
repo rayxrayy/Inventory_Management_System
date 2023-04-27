@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\imscontroller;
 use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
@@ -54,7 +55,7 @@ Route::post('/category',[CategoryController::class,'store']);
 Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
-Route::get('/order', [imscontroller::class, 'order']);
+Route::get('/order', [OrderController::class, 'index']);
 // Route::post('/order',[OrderController::class,'store']);
 Route::get('/product', [ProductController::class, 'index']);
 Route::post('/product',[ProductController::class,'store']);
@@ -62,6 +63,7 @@ Route::get('/member', [imscontroller::class, 'member'])->name('member');
 Route::get('/company', [imscontroller::class, 'company'])->name('company');
 Route::get('/setting', [imscontroller::class, 'setting'])->name('setting');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+Route::post('/order',[OrderController::class,'store']);
 
 Route::get('/test',function(){
     $d = User::all();
