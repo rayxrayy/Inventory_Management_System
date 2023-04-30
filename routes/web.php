@@ -56,8 +56,10 @@ Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
 Route::get('/order', [OrderController::class, 'index']);
+Route::get('/order/{order_id}/products', [OrderController::class, 'orderProducts']);
 // Route::post('/order',[OrderController::class,'store']);
 Route::get('/product', [ProductController::class, 'index']);
+Route::get('/getAllProducts', [ProductController::class, 'getProductsJson']);
 Route::post('/product',[ProductController::class,'store']);
 Route::get('/member', [imscontroller::class, 'member'])->name('member');
 Route::get('/company', [imscontroller::class, 'company'])->name('company');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,9 @@ class ProductController extends Controller
 {
     public function index(){
         $products = product::all();
+        $categories = category::where('status',1)->get();
+
+        $products = product::with('category')->get();
         // dd($categories);
         return view('product',compact('products'));
     }
