@@ -1104,5 +1104,6 @@ main .category button.order-btn {
 
 </div>
 <script src="{{ asset('jsfile/index.js') }}"></script>
+@yield('script')
 </body>
 </html>

@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::all();
-        // dd($orders);
+        $orders = Order::with('products')->get()->toArray();
         
          return view('order',compact('orders'));
         // $categories = order::all();
@@ -26,19 +25,29 @@ class OrderController extends Controller
     //     return redirect('/order');
     // }
     public function store(Request $request){
-        $data = [
-            'client_name'   => $request->input('name'),
-            'client_address'   => $request->input('address'),
-            'client_phone'   => $request->input('phone'),
-            'gross_amount'   => $request->input('gross_amount') ??null,
-            'vat'   => $request->input('vat') ??null,
-            's_charge'   => $request->input('s_charge') ??null,
-            'discount'   => $request->input('discount'),
-            'net_amount'   => $request->input('net_amount') ?? null,
-        ];
-        
-        Order::insert($data);
 
-        return redirect()->route('/order');
+        $order = new Order();
+        $order->client_name = $request->input('name');
+        $order->client_address = $request->input('address');
+        $order->client_phone = $request->input('phone');
+        $order->gross_amount = $request->input('gross_amount')??null;
+        $order->vat = $request->input('vat') ??null;
+        $order->s_charge = $request->input('s_charge') ??null;
+        $order->discount = $request->input('discount');
+        $order->net_amount = $request->input('net_amount') ?? null;
+
+        $order->save();
+
+        foreach($request->input('product') as $key => $product){
+            $order->products()->attach($product,['quantity' => $request->input('qty')[$key]]);
+        }
+
+        return redirect('/order');
+    }
+
+    public function orderProducts(Request $request,$order_id){
+        $products = Order::find($order_id)->products;
+        
+        return view('orderProducts',compact('products'));
     }
 }

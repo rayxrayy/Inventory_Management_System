@@ -41,52 +41,12 @@
                 <th style="width:10%">Qty</th>
                 <th style="width:10%">Rate</th>
                 <th style="width:20%">Amount</th>
-                <th style="width:10%"><button class="order-btn"><span class="material-icons-sharp">add</span></button></th>
+                <th style="width:10%"><button onclick="addProductRow()" type="button" class="order-btn"><span class="material-icons-sharp">add</span></button></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id = "product-table-body">
 
-              <tr class="height1">
-
-                <td>
-                  <select id="product" name="product[]">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="fiat">Fiat</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </td>
-
-                <!-- <td><input type="text"  placeholder="Enter Client Phone" name="product" required></td> -->
-                <td><input type="number" min="1" placeholder="Enter Qty" name="qty" required></td>
-                <td><input type="text"  placeholder="" name="rate" disabled></td>
-                <td><input type="text"  placeholder="" name="amount" disabled></td>
-
-                <td >
-                  <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
-                </td>
-
-              </tr>
-
-              <tr class="height1">
-                <td>
-                  <select id="product" name="product[]">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="fiat">Fiat</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </td>
-                <td><input type="number" min="1" placeholder="Enter Qty" name="qty" required></td>
-                <td><input type="text"  placeholder="" name="rate" disabled></td>
-                <td><input type="text"  placeholder="" name="amount" disabled></td>
-
-                <td >
-                  <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
-                </td>
-
-
-              </tr>
+              
 
             </tbody>
           </table>
@@ -145,14 +105,14 @@
           @if(isset($orders))
           @foreach($orders as $index => $order)
           <tr class="height1">
-            <td>{{$order->id}}</td>
-            <td>{{ $order->client_name}}</td>
-            <td>{{ $order->client_phone}}</td>
-            <td>{{ $order->created_at}}</td>
-            <td>3</td>
-            <td>{{ $order->net_amount}}</td>
+            <td>{{$order['id']}}</td>
+            <td>{{ $order['client_name'] }}</td>
+            <td>{{ $order['client_phone'] }}</td>
+            <td>{{ $order['created_at'] }}</td>
+            <td>{{ count($order['products'])}}</td>
+            <td>{{ $order['net_amount']}}</td>
             <td class="action">
-              <button><span class="material-icons-sharp">print</span></button>
+              <a href="/order/{{ $order['id'] }}/products"><button><span class="material-icons-sharp">print</span></button></a>
               <button><span class="material-icons-sharp">edit</span></button>
               <button><span class="material-icons-sharp">delete</span></button>
             </td>
@@ -166,4 +126,60 @@
       </table>
       <!-- <a href="#">Show All</a> -->
     </div>
+ @endsection
+
+ @section('script')
+ <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+ <script>
+  var products = [];
+  let row_count = 0;
+  $(document).ready(function(){
+    fetchProducts();
+  });
+
+  function addProductRow(){
+    let productOptions = "";
+
+    products.forEach(function(value, index){
+      productOptions += `<option value="${value.id}">${value.name}</option>`      
+    });
+
+    
+    let row =  `<tr class="height1" id="row-${row_count}">
+
+                <td>
+                  <select id="product" name="product[]" onchange="updateProductRate(${this},${row_count})">
+                    ${productOptions}
+                  </select>
+                </td>
+                <td><input type="number" min="1" placeholder="Enter Qty" name="qty[]" required></td>
+                <td><input type="text"  placeholder="" id="product-rate-${row_count}" name="rate" disabled></td>
+                <td><input type="text"  placeholder="" name="amount" disabled></td>
+
+                <td >
+                  <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
+                </td>
+
+                </tr>`; 
+
+      row_count++;
+
+    $('#product-table-body').append(row);
+  }
+
+
+  function fetchProducts(){
+    $.get("/getAllProducts", function(data, status){
+      console.log(status)
+      if(status === "success"){
+        products = data.products;
+      }
+    });
+  }
+
+  function updateProductRate(e,index){
+    alert('ccl')
+  }
+  </script>
+
  @endsection

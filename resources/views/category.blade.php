@@ -13,8 +13,11 @@
             <input type="text" placeholder="Enter Category Name" name="name" required>
 
             <label for="status"><b>Status</b></label>
-            <input type="text" placeholder="Enter Status" name="status" required>
-
+        
+            <select name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:1px solid #6e6e6e;">
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+            </select>
             <button type="submit" class="btn">Save Changes</button>
             <button class="close" id="close-btn" onclick="closeForm()">
                 <span class="material-icons-sharp">close</span>
@@ -38,11 +41,12 @@
             </tr>
         </thead>
         <tbody>
+            @if(isset($categories))
             @foreach ($categories as $category )
             <tr>
 
                 <td>{{ $category->name }}</td>
-                <td>{{ $category->status }}</td>
+                <td>{{ $category->status ? "Active" : "Inactive" }}</td>
                 <td class="action">
                     <button><span class="material-icons-sharp">edit</span></button>
                     <button><span  class="material-icons-sharp">delete</span></button>
@@ -51,6 +55,7 @@
 
             </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
 </div>
