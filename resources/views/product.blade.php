@@ -89,7 +89,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->quantity }}</td>
-            <td>{{ $product->category->name }}</td>
+            <td>{{ $product->category->name ?? "" }}</td>
             <td>{{ $product->availability ? "Active" : "Inactive" }}</td>
             <td class="action">
               <button><span class="material-icons-sharp">edit</span></button>
