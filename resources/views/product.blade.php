@@ -29,17 +29,25 @@
           <input  type="text" placeholder="Enter Product Name" name="name" required>
 
           <label for="status"><b>Price</b></label>
-          <input  type="text"  placeholder="Enter Price" name="status" required>
-          <!-- <input type="password" placeholder="Enter Password" name="status" required> -->
+          <input  type="number"  placeholder="Enter Price" name="price" required>
 
           <label for="text"><b>Quantity</b></label>
           <input  type="text" placeholder="Enter Quantity" name="quantity" required>
 
           <label for="text"><b>Category Name</b></label>
-          <input  type="text" placeholder="Enter Category Name" name="catname" required>
+        
+          <select name="category" required>
+            @foreach ($categories as $category)
+              <option value="{{$category->id }}">{{ $category->name }}</option>
+            @endforeach
+            
+          </select>
 
-          <label for="text"><b>Availability</b></label>
-          <input  type="text" placeholder="Enter Availability" name="availability" required>
+          <label for="text"><b>Status</b></label>
+          <select name="status" required>
+              <option value="1">Active</option> 
+              <option value="0">Disabled</option> 
+          </select>
 
           <button  type="submit" class="btn">Save Changes</button>
           <button class="close" id="close-btn" onclick="closeForm()">
@@ -66,6 +74,7 @@
             <th>Product</th>
             <th>Price</th>
             <th>Qty</th>
+            <th>Category</th>
             <th>Availability</th>
             <th>Action</th>
           </tr>
@@ -74,13 +83,17 @@
 
          @foreach ($products as $product )
           <tr class="height1">
-            {{-- <td class="table_image">
+            <td class="table_image">
                 <img class="profile-photo1" src="./images/profile-1.jpg" alt="">
-            </td> --}}
+            </td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->quantity }}</td>
+<<<<<<< HEAD
             <td>{{ $product->categoryname->name ?? "" }}</td>
+=======
+            <td>{{ $product->category->name ?? "" }}</td>
+>>>>>>> ea5a34a014353af9ff3a5adab586511c8fc20704
             <td>{{ $product->availability ? "Active" : "Inactive" }}</td>
             <td class="action">
               <button><span class="material-icons-sharp">edit</span></button>

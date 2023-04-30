@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index(){
-        $orders = Order::with('products')->get()->toArray();
+    public function index()
+    {
+        $orders = Order::all();
         // dd($orders);
 
-         return view('order',compact('orders'));
+        return view('order', compact('orders'));
         // $categories = order::all();
         // // dd($categories);
         // return view('order',compact('orders'));
@@ -25,7 +26,8 @@ class OrderController extends Controller
 
     //     return redirect('/order');
     // }
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $order = new Order();
         $order->client_name = $request->input('name');
         $order->client_address = $request->input('address');
@@ -38,16 +40,17 @@ class OrderController extends Controller
 
         $order->save();
 
-        foreach($request->input('product') as $key => $product){
-            $order->products()->attach($product,['quantity' => $request->input('qty')[$key]]);
+        foreach($request->input('product') as $key => $product) {
+            $order->products()->attach($product, ['quantity' => $request->input('qty')[$key]]);
         }
 
         return redirect('/order');
     }
 
-    public function orderProducts(Request $request,$order_id){
+    public function orderProducts(Request $request, $order_id)
+    {
         $products = Order::find($order_id)->products;
 
-        return view('orderProducts',compact('products'));
+        return view('orderProducts', compact('products'));
     }
 }

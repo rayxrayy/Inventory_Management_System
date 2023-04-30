@@ -41,11 +41,12 @@
                 <th style="width:10%">Qty</th>
                 <th style="width:10%">Rate</th>
                 <th style="width:20%">Amount</th>
-                <th style="width:10%"><button class="order-btn"><span class="material-icons-sharp">add</span></button></th>
+                <th style="width:10%"><button onclick="addProductRow()" type="button" class="order-btn"><span class="material-icons-sharp">add</span></button></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id = "product-table-body">
 
+<<<<<<< HEAD
               <tr class="height1">
 
                 <td>
@@ -87,6 +88,9 @@
 
 
               </tr>
+=======
+              
+>>>>>>> ea5a34a014353af9ff3a5adab586511c8fc20704
 
             </tbody>
           </table>
@@ -311,10 +315,17 @@
     let productOptions = "";
 
     products.forEach(function(value, index){
+<<<<<<< HEAD
       productOptions += `<option value="${value.id}">${value.name}</option>`
     });
 
 
+=======
+      productOptions += `<option value="${value.id}">${value.name}</option>`      
+    });
+
+    
+>>>>>>> ea5a34a014353af9ff3a5adab586511c8fc20704
     let row =  `<tr class="height1" id="row-${row_count}">
 
                 <td>
@@ -330,7 +341,11 @@
                   <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
                 </td>
 
+<<<<<<< HEAD
                 </tr>`;
+=======
+                </tr>`; 
+>>>>>>> ea5a34a014353af9ff3a5adab586511c8fc20704
 
       row_count++;
 
@@ -352,4 +367,8 @@
   }
   </script>
 
+<<<<<<< HEAD
  @endsection
+=======
+ @endsection
+>>>>>>> ea5a34a014353af9ff3a5adab586511c8fc20704

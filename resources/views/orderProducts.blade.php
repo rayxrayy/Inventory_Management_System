@@ -26,7 +26,11 @@
           </tr>
           @endforeach
         @endif
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> ea5a34a014353af9ff3a5adab586511c8fc20704
         </tbody>
       </table>
       <!-- <a href="#">Show All</a> -->
