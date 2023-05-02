@@ -459,6 +459,10 @@ main .category button.order-btn {
     /* max-width: fit-content; */
     max-width: 600px;/* 100%;  */
     padding: 10px;
+    background: var(--color-white);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
 
   }
 
@@ -471,7 +475,6 @@ main .category button.order-btn {
   /* Full-width input fields */
   .form-container input[type=text] {
     width: 100%;
-
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -482,6 +485,17 @@ main .category button.order-btn {
   .form-container h1 {
     margin-bottom: 7px;
   }
+
+select {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    border: 1px solid var(--color-info-dark);
+    border-radius: 5px;
+}
+
+
   /* form button */
 
 
@@ -525,7 +539,7 @@ main .category button.order-btn {
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
-    border: 1px solid var(--color-dark-variant);
+    border: 1px solid #363949;
     border-radius: 5px;
   }
 
@@ -587,12 +601,14 @@ main .category button.order-btn {
 
   }
 
-  .box {
+.box {
     padding: 20px;
-    border: 1px solid var(--color-dark);
+    border: 1px solid #fff;
     width: 45%;
     border-radius: var(--border-radius-2);
-  }
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
 
   /* .form-container input {
      border-radius: 1px solid var(--color-dark);
@@ -608,7 +624,7 @@ main .category button.order-btn {
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
-    border: 1px solid var(--color-dark-variant);
+    border: 1px solid #b098f3;
     border-radius: 5px;
   }
 

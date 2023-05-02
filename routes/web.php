@@ -9,9 +9,11 @@ use App\Http\Controllers\HomeController;
 // use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\resetpasswordcontroller;
+use App\Http\Controllers\SettingController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -54,16 +56,19 @@ Route::get('/category',[CategoryController::class,'index']);
 Route::post('/category',[CategoryController::class,'store']);
 Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
-
+Route::post('/member',[MemberController::class,'store']);
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/{order_id}/products', [OrderController::class, 'orderProducts']);
 // Route::post('/order',[OrderController::class,'store']);
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/getAllProducts', [ProductController::class, 'getProductsJson']);
 Route::post('/product',[ProductController::class,'store']);
-Route::get('/member', [imscontroller::class, 'member'])->name('member');
+// Route::get('/member', [imscontroller::class, 'member'])->name('member');
+
 Route::get('/company', [imscontroller::class, 'company'])->name('company');
-Route::get('/setting', [imscontroller::class, 'setting'])->name('setting');
+Route::get('/setting',[SettingController::class,'index']);
+Route::post('/setting',[SettingController::class,'store']);
+// Route::get('/setting', [imscontroller::class, 'setting'])->name('setting');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 Route::post('/order',[OrderController::class,'store']);
 

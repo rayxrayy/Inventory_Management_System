@@ -14,7 +14,7 @@
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a id="category" href="./category" class="active">
+                <a id="category" href="./category" class="{{ Request::is('category') ? 'active' : '' }}">
                     <span class="material-icons-sharp">category</span>
                     <h3>Category</h3>
                 </a>
@@ -30,7 +30,7 @@
                     <span class="material-icons-sharp">groups</span>
                     <h3>Members</h3>
                 </a>
-                <a id="company" href="./company" class="">
+                <a id="company" href="./company" class="{{ Request::is('company') ? 'active' : '' }}">
                     <span class="material-icons-sharp">apartment</span>
                     <h3>Company</h3>
                 </a>

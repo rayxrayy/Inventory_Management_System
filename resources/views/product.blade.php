@@ -35,18 +35,15 @@
           <input  type="text" placeholder="Enter Quantity" name="quantity" required>
 
           <label for="text"><b>Category Name</b></label>
-        
+
           <select name="category" required>
-            @foreach ($categories as $category)
-              <option value="{{$category->id }}">{{ $category->name }}</option>
-            @endforeach
-            
+
           </select>
 
           <label for="text"><b>Status</b></label>
           <select name="status" required>
-              <option value="1">Active</option> 
-              <option value="0">Disabled</option> 
+              <option value="1">Active</option>
+              <option value="0">Disabled</option>
           </select>
 
           <button  type="submit" class="btn">Save Changes</button>
@@ -89,11 +86,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->quantity }}</td>
-<<<<<<< HEAD
             <td>{{ $product->categoryname->name ?? "" }}</td>
-=======
-            <td>{{ $product->category->name ?? "" }}</td>
->>>>>>> ea5a34a014353af9ff3a5adab586511c8fc20704
             <td>{{ $product->availability ? "Active" : "Inactive" }}</td>
             <td class="action">
               <button><span class="material-icons-sharp">edit</span></button>

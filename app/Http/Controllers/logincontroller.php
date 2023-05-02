@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class logincontroller extends Controller
 {
     public function login(Request $request)
-    { 
+    {
         return view('dashboard');
     }
 }

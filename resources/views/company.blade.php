@@ -1,5 +1,6 @@
 @extends('layouts.home')
    <link rel="stylesheet" href="{{ asset('cssfile/stylecompany.css') }}">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 @section('content')
 <h1>About Us</h1>
 <section class="about">

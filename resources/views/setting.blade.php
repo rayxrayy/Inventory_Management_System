@@ -5,7 +5,8 @@
 <div class="flex">
     <div class="box">
         <h2>Edit Profile</h2>
-        <form action="" class="form-container-setting">
+        <form method="POST" action="" class="form-container-setting">
+        @csrf
             <label for="text"><b>First Name</b></label>
             <input type="text" placeholder="Enter First Name" name="fname" required>
 
@@ -17,6 +18,9 @@
 
             <label for="text"><b>Phone</b></label>
             <input type="text" placeholder="Enter Phone Number" name="phone" required>
+            <div class="category">
+                <button type="submit" class="btn  spaces">Save Changes</button>
+            </div>
 
         </form>
     </div>

@@ -13,8 +13,8 @@
             <input type="text" placeholder="Enter Category Name" name="name" required>
 
             <label for="status"><b>Status</b></label>
-        
-            <select name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:1px solid #6e6e6e;">
+
+            <select name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:1px solid #7d8da1;">
                 <option value="1">Active</option>
                 <option value="0">Inactive</option>
             </select>

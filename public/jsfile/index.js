@@ -3,7 +3,7 @@ const menuBtn = document.querySelector("#menu-btn");
 const closeBtn = document.querySelector("#close-btn");
 const themeToggler = document.querySelector(".theme-toggler");
 const logoutbtn = document.querySelector(".logout");
-const sideBar = document.querySelector(".sidebar");
+// const sideBar = document.querySelector(".sidebar");
 // show sidebar
 menuBtn.addEventListener('click', () => {
     sideMenu.style.display = 'block';
@@ -17,22 +17,23 @@ closeBtn.addEventListener('click', () => {
 //change theme
 themeToggler.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme-variables');
-
     themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
     themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
 })
 
 //change navbar onclick
-const sidebarItems = document.querySelectorAll('.sidebar a');
+// const sidebarItems = document.querySelectorAll('.sidebar a');
+// sidebarItems.forEach((item) => {
+//     console.log(item)
+//   item.addEventListener('click', () => {
+//     sidebarItems.forEach((sidebarItem) => {
+//       sidebarItem.classList.remove('active');
+//     });
+//     // console.log(item)
+//     item.classList.add('active');
+//   });
+// });
 
-sidebarItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    sidebarItems.forEach((sidebarItem) => {
-      sidebarItem.classList.remove('active');
-    });
-    item.classList.add('active');
-  });
-});
 
 //Add Category
 function openForm() {
@@ -95,15 +96,10 @@ function html_table_to_excel(type)
 // });
 
 //delete button of category page
-// function deleteRow(r) {
-//     var i = r.parentNode.parentNode.rowIndex;
-//     document.getElementById("category_data").deleteRow(i);
-//   }
-
-
-
-
-
+function deleteRow(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("category_data").deleteRow(i);
+  }
 
 
 //edit button order page
@@ -123,10 +119,6 @@ function editProfile() {
 
 //     document.body.innerHTML = originalContents;
 // }
-
-
-
-
 
 
 

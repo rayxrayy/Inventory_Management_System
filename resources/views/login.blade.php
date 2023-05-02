@@ -38,12 +38,6 @@
                                         <a class="btn btn-link" href="./forgot-password">
                                             <span class="material-icons-sharp ">| Forgot password</span>
                                         </a>
-                                        {{-- @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                        </a>
-                                        @endif --}}
-                                        {{-- <a>I Forgot Password!</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -52,16 +46,6 @@
                         </div> @if (session('error'))
                         <div class="error-message">{{ session('error') }}</div>
                         @endif
-                        {{-- <div class="login-form-footer">
-                            <a href="#">
-                                <img width="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1365px-Facebook_f_logo_%282019%29.svg.png">
-                                Facebook Login
-                            </a>
-                            <a href="#">
-                                <img width="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5q0FP74VV9wbfwP378_7kj7iDomHuKrxkXsxDdUT28V9dlVMNUe-EMzaLwaFhneeuZI&usqp=CAU">
-                                Google Login
-                            </a>
-                        </div> --}}
                     </form>
                 </form>
                 <form action="#" class="sign-up-form">

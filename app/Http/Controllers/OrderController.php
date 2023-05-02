@@ -28,6 +28,7 @@ class OrderController extends Controller
     // }
     public function store(Request $request)
     {
+        // echo 'asdfghj';
         $order = new Order();
         $order->client_name = $request->input('name');
         $order->client_address = $request->input('address');
