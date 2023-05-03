@@ -10,16 +10,9 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
-        $products = product::all();
-        $categories = category::where('status',1)->get();
-
         $products = product::with('category')->get();
-        // dd($categories);
-        return view('product',compact('products'));
         $categories = category::where('status',1)->get();
-
-        $products = product::with('category')->get();
-
+        // dd($products);
         return view('product',compact('products','categories'));
     }
     public function store(Request $request){

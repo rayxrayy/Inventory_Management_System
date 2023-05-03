@@ -132,7 +132,10 @@
  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
  <script>
   var products = [];
-  let row_count = 0;
+  var current_product = [];
+var totalAmount = 0;
+
+  var row_count = 0;
   $(document).ready(function(){
     fetchProducts();
   });
@@ -148,13 +151,13 @@
     let row =  `<tr class="height1" id="row-${row_count}">
 
                 <td>
-                  <select id="product" name="product[]" onchange="updateProductRate(${this},${row_count})">
+                  <select id="product-${ row_count}" name="product[]" onchange="updateProductRate(${row_count})">
                     ${productOptions}
                   </select>
                 </td>
-                <td><input type="number" min="1" placeholder="Enter Qty" name="qty[]" required></td>
-                <td><input type="text"  placeholder="" id="product-rate-${row_count}" name="rate" required></td>
-                <td><input type="text"  placeholder="" name="amount" required></td>
+                <td><input id="product-quantity-${row_count}" type="number" min="1" value="1" placeholder="Enter Qty" name="qty[]" onclick="updatePrice(${row_count})" required></td>
+                <td><input type="text"  placeholder="" id="product-rate-${row_count}" name="rate" readonly></td>
+                <td><input id="product-amount-${row_count}" type="text"  placeholder="" name="amount" readonly></td>
 
                 <td >
                   <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
@@ -177,9 +180,31 @@
     });
   }
 
-  function updateProductRate(e,index){
-    alert('ccl')
+  function updateProductRate(index){
+    let product_id = $('#product-' + index).val()
+
+    let p = products.filter(function(value){
+        return value.id == product_id;
+    });
+
+    current_product = p;
+
+    $('#product-rate-' + index).val(p[0].price)
+
+    let quantity = $('#product-quantity-' + index).val();
+    let amount = quantity * p[0].price;
+    totalAmount += amount;
+    $('#product-amount-' + index).val(amount);
+
   }
+
+  function updatePrice(row){
+    let quantity = $('#product-quantity-' + row).val();
+    let price = $('#product-rate-' + row).val();
+    let amount = price * quantity;
+    $('#product-amount-' + row).val(amount);
+  }
+
   </script>
 
  @endsection
