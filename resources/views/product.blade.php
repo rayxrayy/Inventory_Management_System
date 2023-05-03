@@ -37,7 +37,11 @@
           <label for="text"><b>Category Name</b></label>
 
           <select name="category" required>
-
+          @if(isset($categories))
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+            @endif;
           </select>
 
           <label for="text"><b>Status</b></label>
@@ -86,7 +90,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->quantity }}</td>
-            <td>{{ $product->categoryname->name ?? "" }}</td>
+            <td>{{ $product->category->name ?? "" }}</td>
             <td>{{ $product->availability ? "Active" : "Inactive" }}</td>
             <td class="action">
               <button><span class="material-icons-sharp">edit</span></button>
