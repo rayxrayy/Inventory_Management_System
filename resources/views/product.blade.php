@@ -6,7 +6,7 @@
     <div class="category">
       <button type="button" id="add_category" onclick="openForm()">Add Product</button>
 
-      <!-- Add Category Form -->
+      <!-- Add product Form -->
       <div class="form-popup-product" id="myForm">
         <form method="post" action="" class="form-container-product">
           @csrf

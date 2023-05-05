@@ -133,7 +133,7 @@
  <script>
   var products = [];
   var current_product = [];
-var totalAmount = 0;
+  var totalAmount = 0;
 
   var row_count = 0;
   $(document).ready(function(){

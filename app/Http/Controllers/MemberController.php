@@ -14,6 +14,7 @@ class MemberController extends Controller
     }
     public function store(Request $request){
         $member = new member();
+        // dd($member);
         $member->name = $request->input('name');
         $member->password = $request->input('password');
         $member->email = $request->input('email');
@@ -24,5 +25,13 @@ class MemberController extends Controller
 
         return redirect('/member');
         // dd($request);
+    }
+
+    public function destroy($id)
+    {
+        $users = member::user($id);
+        $users->delete();
+
+        // return Redirect::route('comics.users' , compact('users'));
     }
 }
