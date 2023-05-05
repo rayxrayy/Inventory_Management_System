@@ -55,19 +55,19 @@
 
 
           <label for="text"><b>Gross Amount</b></label>
-          <input type="text" placeholder="Gross Amount" name="gamount" required>
+          <input type="text" placeholder="Gross Amount" name="gamount" required readonly>
 
-          <label for="text"><b>S Charge 13%</b></label>
-          <input type="text" placeholder="Category Name" name="charge" required>
+          <label for="text"><b>Shipping Charge</b></label>
+          <input id="shipping_charge" type="number" placeholder="Category Name" name="charge" value="0" required>
 
-          <label for="text"><b>Vat 10%</b></label>
-          <input type="text" placeholder="Vat" name="vat" required>
+          <label for="text"><b>Vat 13%</b></label>
+          <input type="text" placeholder="Vat" name="vat" value="13" readonly>
 
           <label for="text"><b>Discount</b></label>
-          <input type="text" placeholder="Enter Discount" name="discount" required>
+          <input id="discount" type="text" placeholder="Enter Discount" name="discount" value="0" required>
 
           <label for="text"><b>Net Amount</b></label>
-          <input type="text" placeholder="Net Amount" name="namount" required>
+          <input type="text" placeholder="Net Amount" name="namount" readonly>
 
 
           <button type="submit" class="btn"><span class="material-icons-sharp">print</span></button>
@@ -136,8 +136,27 @@
   var totalAmount = 0;
 
   var row_count = 0;
+
   $(document).ready(function(){
     fetchProducts();
+      $(document).on('input', '.product-quantity', function() {
+          // Find the closest row element
+          var row = $(this).closest('tr');
+
+          // Find the row index
+          var rowIndex = row.index();
+          updateProductRate(rowIndex)
+      });
+
+      $(document).on('input', '#shipping_charge', function() {
+          let charge = $(this).val();
+          calculateTotal()
+      });
+
+      $(document).on('input', '#discount', function() {
+          let charge = $(this).val();
+          calculateTotal()
+      });
   });
 
   function addProductRow(){
@@ -151,14 +170,14 @@
     let row =  `<tr class="height1" id="row-${row_count}">
 
                 <td>
-                  <select id="product-${ row_count}" name="product[]" onchange="updateProductRate(${row_count})">
+                  <select id="product-${ row_count}" name="product[]" onchange="updateProductRate(${row_count})" required>
+                    <option value="">Select the product</option>
                     ${productOptions}
                   </select>
                 </td>
-                <td><input id="product-quantity-${row_count}" type="number" min="1" value="1" placeholder="Enter Qty" name="qty[]" onclick="updatePrice(${row_count})" required></td>
+                <td><input class="product-quantity" id="product-quantity-${row_count}" type="number" min="1" value="1" placeholder="Enter Qty" name="qty[]" required></td>
                 <td><input type="text"  placeholder="" id="product-rate-${row_count}" name="rate" readonly></td>
                 <td><input id="product-amount-${row_count}" type="text"  placeholder="" name="amount" readonly></td>
-
                 <td >
                   <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
                 </td>
@@ -173,9 +192,9 @@
 
   function fetchProducts(){
     $.get("/getAllProducts", function(data, status){
-      console.log(status)
       if(status === "success"){
         products = data.products;
+        addProductRow();//Default 1 row
       }
     });
   }
@@ -196,6 +215,27 @@
     totalAmount += amount;
     $('#product-amount-' + index).val(amount);
 
+    calculateTotal();
+
+  }
+
+  function calculateTotal(){
+      let grossTotal = 0;
+        console.log( typeof $("input[name='discount']").val());
+
+      $('input[name="amount"]').map(function() {
+          grossTotal += parseFloat($(this).val());
+      });
+      let shipping_charge = $("input[name='charge']").val();
+      shipping_charge = (shipping_charge === '') ?  0 : shipping_charge;
+
+      let discount = $("input[name='discount']").val();
+      discount = (discount ==='') ?  0 : discount;
+
+      let vat = 0.13 * grossTotal;
+      let net_amount = grossTotal + vat + parseFloat(shipping_charge) - parseFloat(discount);
+      $("input[name='gamount']").val(grossTotal)
+      $("input[name='namount']").val(net_amount)
   }
 
   function updatePrice(row){
