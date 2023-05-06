@@ -13,7 +13,10 @@ menuBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     sideMenu.style.display = 'none';
 })
-
+function showEditForm() {
+    document.getElementById("add_category").style.display = "none";
+    document.getElementById("edit-form").style.display = "block";
+  }
 //change theme
 themeToggler.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme-variables');

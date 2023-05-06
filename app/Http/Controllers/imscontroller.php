@@ -13,10 +13,6 @@ class imscontroller extends Controller
     public function index(Request $req){
     return view('dashboard');
 }
-
-public function bill(){
-    return view('Bill');
-}
 public function home(){
     return view('dashboard');
 }
@@ -40,7 +36,4 @@ public function company(){
 public function setting(){
     return view('setting');
 }
-
-
-
 }
