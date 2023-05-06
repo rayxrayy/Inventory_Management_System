@@ -186,7 +186,7 @@
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="./images/profile-1.jpg" alt="">
+                        <img src="./images/photo.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -207,22 +207,6 @@
                                 <td>Your mom just logged in.</td>
                                 <td><span class="material-icons-sharp">done</span></td>
 
-                            </tr>
-                            <tr>
-                                <td>Foldable</td>
-                                <td><span class="material-icons-sharp">done</span></td>
-                            </tr>
-                            <tr>
-                                <td>Foldable</td>
-                                <td><span class="material-icons-sharp">done</span></td>
-                            </tr>
-                            <tr>
-                                <td>Foldable</td>
-                                <td><span class="material-icons-sharp">done</span></td>
-                            </tr>
-                            <tr>
-                                <td>Foldable</td>
-                                <td><span class="material-icons-sharp">done</span></td>
                             </tr>
                         </tbody>
                     </table>

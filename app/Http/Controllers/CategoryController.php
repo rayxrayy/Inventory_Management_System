@@ -37,6 +37,7 @@ class CategoryController extends Controller
         return redirect('/category')->with(['message'   => 'Category deleted successfully']);
     }
 
+    // Edit a category
     public function update(Request $request)
     {
         if(!$request->has('id')){

@@ -11,4 +11,12 @@ class logincontroller extends Controller
     {
         return view('dashboard');
     }
+
+    public function userlogin(Request $request)
+    {
+        return view('dashboard');
+    }
+
+
+
 }

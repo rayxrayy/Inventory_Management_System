@@ -23,10 +23,11 @@
             <label for="status"><b>Status</b></label>
 
             <select name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:1px solid #7d8da1;">
+                <option>--Select Status--</option>
                 <option value="1">Active</option>
                 <option value="0">Inactive</option>
             </select>
-            <button type="submit" class="btn">Save Changes</button>
+            <button type="submit" class="btn">Save</button>
             <button class="close" id="close-btn" onclick="closeForm()">
                 <span class="material-icons-sharp">close</span>
             </button>
@@ -48,11 +49,12 @@
             <label for="status"><b>Status</b></label>
 
             <select id="category-status" name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:1px solid #7d8da1;">
+            <option>--Select Status--</option>
                 <option value="1">Active</option>
                 <option value="0">Inactive</option>
             </select>
             <button type="submit" class="btn">Save Changes</button>
-            <button type="button" class="close" onclick="closeEditForm()">
+            <button type="button" class="close-btn" onclick="closeEditFormm()">
                 <span class="material-icons-sharp">close</span>
             </button>
 

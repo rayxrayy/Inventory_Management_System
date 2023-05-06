@@ -11,20 +11,20 @@
             <input type="text" name="firstname" value="{{ auth()->user()->name }}" autofocus="" required>
 
             <label for="text"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter Last Name" name="lastname" value="{{ auth()->user()->email }}" required>
+            <input type="text" placeholder="Enter Last Name" name="lastname" value="Basnet" required>
 
             <label for="text"><b>Email</b></label>
             <input type="email" placeholder="Enter Your Email" name="email" value="{{ auth()->user()->email }}"required>
 
             <label for="text"><b>Phone</b></label>
-            <input type="text" placeholder="Enter Phone Number" name="phone" value="{{ auth()->user()->email }}" required>
+            <input type="text" placeholder="Enter Phone Number" name="phone" value="9828962083" required>
             <div class="category">
                 <button type="submit" class="btn  spaces">Save Changes</button>
             </div>
 
         </form>
     </div>
-
+{{--
     <div class="box">
         <h2>Change Password</h2>
         <form action="" class="form-container-setting">
@@ -36,7 +36,7 @@
                 <button type="submit" class="btn  spaces">Save Changes</button>
             </div>
         </form>
-    </div>
+    </div> --}}
 
 </div>
 @endsection
