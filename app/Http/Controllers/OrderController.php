@@ -13,19 +13,8 @@ class OrderController extends Controller
         // dd($orders);
 
         return view('order', compact('orders'));
-        // $categories = order::all();
-        // // dd($categories);
-        // return view('order',compact('orders'));
     }
 
-    // public function store(Request $request){
-    //     $category = new order();
-    //     $category->name = $request->input('name');
-    //     $category->status = $request->input('status');
-    //     $category->save();
-
-    //     return redirect('/order');
-    // }
     public function store(Request $request)
     {
 
@@ -53,5 +42,13 @@ class OrderController extends Controller
         $products = Order::find($order_id)->products;
 
         return view('orderProducts', compact('products'));
+    }
+
+      // Delete a order
+    public function destroy($id)
+    {
+        $order = order::find($id);
+        $order->delete();
+        return redirect('/order')->with(['message'   => 'order deleted successfully']);
     }
 }

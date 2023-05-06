@@ -13,7 +13,7 @@
                 <small class="text-muted">Admin</small>
             </div>
             <div class="profile-photo">
-                <img src="./images/profile-1.jpg" alt="">
+                <img src="./images/photo.jpg" alt="">
             </div>
         </div>
     </div>

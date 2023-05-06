@@ -14,6 +14,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\resetpasswordcontroller;
 use App\Http\Controllers\SettingController;
+use App\Models\member;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -37,9 +38,9 @@ Route::get('/',function(){
         return view('dashboard');
     }
     else{
-        $message="Incorrect Password";
+        $message= "Incorrect Password";
     }
-    return view('login');
+    return view('login')->with('failed', 'Incorrect password');;
 });
 
 Route::post('/login',[LoginController::class,'login'])->name('login');
@@ -60,14 +61,21 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
 Route::get('/member',[MemberController::class, 'index']);
 Route::post('/member',[MemberController::class,'store']);
+Route::patch('/member',[MemberController::class,'update']);
+Route::get('/member/delete/{id}',[MemberController::class,'destroy']);
 
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/{order_id}/products', [OrderController::class, 'orderProducts']);
 Route::post('/order',[OrderController::class,'store']);
+Route::get('/order/delete/{id}',[OrderController::class,'destroy']);
+Route::delete('/orders/{order}', [OrderController::class, 'destroy']);
 
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/getAllProducts', [ProductController::class, 'getProductsJson']);
 Route::post('/product',[ProductController::class,'store']);
+Route::patch('/product',[ProductController::class,'update']);
+Route::patch('/product',[ProductController::class,'update']);
+Route::get('/product/delete/{id}',[productController::class,'destroy']);
 
 Route::get('/company', [imscontroller::class, 'company'])->name('company');
 
@@ -82,6 +90,13 @@ Route::get('/test',function(){
     $d = User::all();
     foreach($d as $user){
         print_r($user->name);
+    }
+});
+
+Route::get('/test2',function(){
+    $d = member::all();
+    foreach($d as $member){
+        print_r($member->name);
     }
 });
 

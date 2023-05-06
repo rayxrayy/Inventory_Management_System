@@ -26,6 +26,9 @@
                                 <input type="text" id="emailForm" name="email" required>
 
                             </div>
+                            @if (session()->has('failed'))
+                        <div class="error-message">{{ session()->get('failed') }}</div>
+                        @endif
                             <div class="form-item">
                                 <label for="passwordForm">Enter Password</label>
                                 <input type="password" id="passwordForm" name="password" required>
@@ -43,9 +46,7 @@
                             </div>
                             <button name="submit" type="submit">log In</button>
                             <!-- <button onsubmit="return index()" >login</button>  -->
-                        </div> @if (session('error'))
-                        <div class="error-message">{{ session('error') }}</div>
-                        @endif
+                        </div>
                     </form>
                 </form>
                 <form action="#" class="sign-up-form">

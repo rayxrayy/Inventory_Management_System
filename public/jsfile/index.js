@@ -17,6 +17,11 @@ function showEditForm() {
     document.getElementById("add_category").style.display = "none";
     document.getElementById("edit-form").style.display = "block";
   }
+
+//   function showEditForm() {
+//     document.getElementById("add_category").style.display = "none";
+//     document.getElementById("edit-form").style.display = "block";
+//   }
 //change theme
 themeToggler.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme-variables');
@@ -54,9 +59,52 @@ function openForm() {
     document.getElementById('edit-category-form').style.display = "block";
   }
 
-  function closeEditForm(){
+  function closeEditFormm(){
       document.getElementById("edit-category-form").style.display = "none";
   }
+
+
+  //Add Product
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
+  function editProduct(product){
+    document.getElementById('product-id').value = product.id;
+    document.getElementById('product-name').value = product.name;
+    document.getElementById('product-price').value = product.price;
+    document.getElementById('product-qty').value = product.quantity;
+    document.getElementById('product-category').value = product.category;
+    document.getElementById('product-status').value = product.availability;
+    document.getElementById('edit-product-form').style.display = "block";
+  }
+
+  function closeEditForm(){
+      document.getElementById("edit-product-form").style.display = "none";
+  }
+
+  //edit member
+
+  function editMember(member){
+    document.getElementById('member-id').value = member.id;
+    document.getElementById('member-name').value = member.name;
+    document.getElementById('member-password').value = member.password;
+    document.getElementById('member-email').value = member.email;
+    document.getElementById('member-phone').value = member.phone;
+    document.getElementById('member-address').value = member.address;
+    document.getElementById('gender').value = member.gender;
+    document.getElementById('edit-member-form').style.display = "block";
+  }
+
+  function closeEditFom(){
+      document.getElementById("edit-member-form").style.display = "none";
+  }
+
+
 
 // HTML to Excel
 function html_table_to_excel(type)

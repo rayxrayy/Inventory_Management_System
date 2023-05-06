@@ -40,6 +40,7 @@
 
 <body>
     <form action="/bill" class="form-container-product" method="POST">
+     @csrf
         {{-- <div class="wrapper" id="printableArea"> --}}
             <div class="invoice_wrapper">
                 <div class="header">
@@ -57,6 +58,7 @@
                             <p class="invoice bold">INVOICE</p>
                             <p class="invoice_no">
                                 <span class="bold">Invoice</span>
+                                {{-- <input class="form-control" name="name" value="{{ $bills->name }}"> --}}
                                 <span>Bill No</span>
                             </p>
                             <p class="date">
@@ -78,13 +80,19 @@
                 </div>
                 <div class="body">
                     <table id="bill">
+                    <thead>
                         <tr>
-                            <th>Bill No</th>
+                            <th>S.N</th>
                             <th>Products</th>
                             <th>Rate</th>
                             <th>QTY</th>
                             <th>Amount</th>
                         </tr>
+                    </thead>
+
+                    <tbody>
+          {{-- @if(isset($orders))
+          @foreach($orders as $index => $order) --}}
                         <tr>
                             <td>1</td>
                             <td>Box</td>
@@ -92,13 +100,9 @@
                             <td>12</td>
                             <td>120</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Box</td>
-                            <td>10</td>
-                            <td>12</td>
-                            <td>120</td>
-                        </tr>
+                                  {{-- @endforeach
+          @endif --}}
+                    </tbody>
                     </table>
 
                     <div class="paymethod_grandtotal_wrap">
