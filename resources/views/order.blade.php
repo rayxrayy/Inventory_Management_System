@@ -70,8 +70,9 @@
           <input type="text" placeholder="Net Amount" name="namount" readonly>
 
 
-          <button type="submit" class="btn"><span class="material-icons-sharp">print</span></button>
-          <button type="submit" class="btn close">Save Changes</button>
+          {{-- <button type="submit" class="btn"><span class="material-icons-sharp">print</span></button> --}}
+        <a href="/bill"><button><span class="material-icons-sharp">print</span></button></a>
+          <button type="submit" class="btn close">Save</button>
           <button class="close" id="close-btn" onclick="closeForm()">
             <span class="material-icons-sharp">close</span>
           </button>
@@ -112,9 +113,7 @@
             <td>{{ count($order['products'])}}</td>
             <td>{{ $order['net_amount']}}</td>
             <td class="action">
-              <a href="/order/{{ $order['id'] }}/products"><button><span class="material-icons-sharp">print</span></button></a>
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
+              <a href="/bill"><button><span class="material-icons-sharp">print</span></button></a>
             </td>
 
 
@@ -124,7 +123,6 @@
 
         </tbody>
       </table>
-      <!-- <a href="#">Show All</a> -->
     </div>
  @endsection
 

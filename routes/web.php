@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\imscontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrderController;
@@ -71,7 +72,7 @@ Route::post('/setting',[SettingController::class,'store']);
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::get('/bill', [imscontroller::class, 'bill']);
+Route::get('/bill', [BillController::class, 'index'])->name('bill');
 
 Route::get('/test',function(){
     $d = User::all();
