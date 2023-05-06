@@ -29,10 +29,26 @@ class CategoryController extends Controller
     }
 
     // Delete a category
-    public function destroy($category)
+    public function destroy($id)
     {
-        $category = Category::where('name', $category)->first();
+        $category = Category::find($id);
         $category->delete();
-        return response()->json(['success' => true]);
+        return redirect('/category')->with(['message'   => 'Category deleted successfully']);
     }
+
+    public function update(Request $request)
+    {
+        if(!$request->has('id')){
+            return redirect('/category')->with(['message' => 'Oops.. Something went wrong']);
+        }
+
+        $category = category::find($request->input('id'));
+        $category->name = $request->input('name') ?? $category->name;
+        $category->status = $request->input('status') ?? $category->status;
+        $category->save();
+
+        return redirect('/category')->with(['message' => 'Category updated successfully']);
+    }
+
+
 }
