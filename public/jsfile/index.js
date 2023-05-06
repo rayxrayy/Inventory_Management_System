@@ -47,6 +47,17 @@ function openForm() {
     document.getElementById("myForm").style.display = "none";
   }
 
+  function editCategory(category){
+    document.getElementById('category-id').value = category.id;
+    document.getElementById('category-name').value = category.name;
+    document.getElementById('category-status').value = category.status;
+    document.getElementById('edit-category-form').style.display = "block";
+  }
+
+  function closeEditForm(){
+      document.getElementById("edit-category-form").style.display = "none";
+  }
+
 // HTML to Excel
 function html_table_to_excel(type)
     {
