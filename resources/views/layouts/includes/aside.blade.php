@@ -18,15 +18,15 @@
                     <span class="material-icons-sharp">category</span>
                     <h3>Category</h3>
                 </a>
-                <a id="order" href="./order" class="">
+                <a id="order" href="./order" class="{{ Request::is('order') ? 'active' : '' }}">
                     <span class="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
-                <a id="product" href="./product" class="">
+                <a id="product" href="./product" class="{{ Request::is('product') ? 'active' : '' }}">
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
-                <a id="member" href="./member" class="">
+                <a id="member" href="./member" class="{{ Request::is('member') ? 'active' : '' }}">
                     <span class="material-icons-sharp">groups</span>
                     <h3>Members</h3>
                 </a>
@@ -34,7 +34,7 @@
                     <span class="material-icons-sharp">apartment</span>
                     <h3>Company</h3>
                 </a>
-                <a id="setting" href="./setting" class="">
+                <a id="setting" href="./setting" class="{{ Request::is('setting') ? 'active' : '' }}">
                     <span class="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
                 </a>

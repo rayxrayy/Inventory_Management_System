@@ -3,8 +3,11 @@
 <h1>Manage Category</h1>
 <div class="category">
     <button type="button" id="add_category" onclick="openForm()">Add Category</button>
+
     <!-- Add Category Form -->
     <div class="form-popup category-form" id="myForm">
+
+
         <form method="post" action="" class="form-container">
             @csrf
             <h1>Add Category</h1>

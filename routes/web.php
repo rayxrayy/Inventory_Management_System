@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\imscontroller;
 use App\Http\Controllers\HomeController;
-// use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MemberController;
@@ -44,12 +43,9 @@ Route::get('/',function(){
 
 Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::get('/login',[LoginController::class,'showLoginForm']);
-// Route::get('/loggedin',[LoginController::class,'showLoginFormm']);
-// Route::post('/category',[imscontroller::class, 'category'])->name('category');
-// Auth::routes();
+
 Route::middleware('auth')->group(function(){
     Route::get('/dashboard', [imscontroller::class, 'index'])->name('home');
-    // Route::get('/category', [imscontroller::class, 'category'])->name('category');
 });
 
 Route::get('/category',[CategoryController::class,'index']);
@@ -60,21 +56,26 @@ Route::get('/category/delete/{id}',[CategoryController::class,'destroy']);
 
 Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
+
+Route::get('/member',[MemberController::class, 'index']);
 Route::post('/member',[MemberController::class,'store']);
+
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/{order_id}/products', [OrderController::class, 'orderProducts']);
-// Route::post('/order',[OrderController::class,'store']);
+Route::post('/order',[OrderController::class,'store']);
+
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/getAllProducts', [ProductController::class, 'getProductsJson']);
 Route::post('/product',[ProductController::class,'store']);
-// Route::get('/member', [imscontroller::class, 'member'])->name('member');
 
 Route::get('/company', [imscontroller::class, 'company'])->name('company');
+
 Route::get('/setting',[SettingController::class,'index']);
 Route::post('/setting',[SettingController::class,'store']);
-// Route::get('/setting', [imscontroller::class, 'setting'])->name('setting');
+
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
-Route::post('/order',[OrderController::class,'store']);
+
+Route::get('/bill', [imscontroller::class, 'bill']);
 
 Route::get('/test',function(){
     $d = User::all();

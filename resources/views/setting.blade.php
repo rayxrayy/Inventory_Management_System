@@ -8,16 +8,16 @@
         <form method="POST" action="" class="form-container-setting">
         @csrf
             <label for="text"><b>First Name</b></label>
-            <input type="text" placeholder="Enter First Name" name="fname" required>
+            <input type="text" name="firstname" value="{{ auth()->user()->name }}" autofocus="" required>
 
             <label for="text"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter Last Name" name="lname" required>
+            <input type="text" placeholder="Enter Last Name" name="lastname" value="{{ auth()->user()->email }}" required>
 
             <label for="text"><b>Email</b></label>
-            <input type="email" placeholder="Enter Your Email" name="email" required>
+            <input type="email" placeholder="Enter Your Email" name="email" value="{{ auth()->user()->email }}"required>
 
             <label for="text"><b>Phone</b></label>
-            <input type="text" placeholder="Enter Phone Number" name="phone" required>
+            <input type="text" placeholder="Enter Phone Number" name="phone" value="{{ auth()->user()->email }}" required>
             <div class="category">
                 <button type="submit" class="btn  spaces">Save Changes</button>
             </div>

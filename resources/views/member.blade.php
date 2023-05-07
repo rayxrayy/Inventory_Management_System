@@ -1,57 +1,33 @@
 @extends('layouts.home')
 
 @section('content')
-<h1>Manage Member</h1>
+<style>
 
+</style>
+<h1>Manage Member</h1>
 <div class="category">
     <button type="button" id="add_category" onclick="openForm()">Add Member</button>
-    <div class="recent-orders">
-        <h2>Members</h2>
-        <table id="category_data">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>byan</td>
-                <td>bryan@gmail.com</td>
-                <td>+977 00000000</td>
-                <td>Naxal</td>
-                <td class="action">
-                    <button><span class="material-icons-sharp">edit</span></button>
-                    <button><span class="material-icons-sharp">delete</span></button>
-                </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- Add Category Form -->
-    <div class="form-popup-product" id="myForm">
-        <form method="POST" action="" class="form-container-product">
+     <div class="form-popup-product" id="myForm">
+    <form method="post" action="" class="form-container-product">
+        @csrf
             <h1>Add Member</h1>
-@csrf
+
             <label for="text"><b>Member Name</b></label>
             <input type="text" placeholder="Enter Name" name="name" required>
 
             <label for="text"><b>Password</b></label>
-            <input type="text" placeholder="Enter Password" name="Password" required>
+            <input type="text" placeholder="Enter Password" name="password" required>
 
             <label for="text"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" required>
 
             <label for="text"><b>Phone</b></label>
-            <input type="text" placeholder="Enter Phone number" name="number" required>
-<label for="text"><b>Address</b></label>
+            <input type="text" placeholder="Enter Phone number" name="phone" required>
+            <label for="text"><b>Address</b></label>
             <input type="text" placeholder="Enter Address" name="address" required>
 
 
-            <label for="gender">Gender:</label>
+            <label for="gender"><b>Gender<b></label>
             <select id="gender" name="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -63,7 +39,38 @@
                     <span class="material-icons-sharp">close</span>
                 </button>
             </div>
-        </form>
-    </div>
+
+        </div>
+</div>
+</form>
+<div class="recent-orders">
+    <h2>Members</h2>
+    <table id="category_data">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(isset($members))
+            @foreach ($members as $member )
+            <tr>
+                <td>{{ $member->name }}</td>
+                <td>{{ $member->email }}</td>
+                <td>{{ $member->phone }}</td>
+                <td>{{ $member->address }}</td>
+                <td class="action">
+                    <button><span class="material-icons-sharp">edit</span></button>
+                    <button><span class="material-icons-sharp">delete</span></button>
+                </td>
+            </tr>
+            @endforeach
+            @endif
+        </tbody>
+    </table>
 </div>
 @endsection
