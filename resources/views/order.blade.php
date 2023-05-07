@@ -55,23 +55,24 @@
 
 
           <label for="text"><b>Gross Amount</b></label>
-          <input type="text" placeholder="Gross Amount" name="gamount" required>
+          <input type="text" placeholder="Gross Amount" name="gamount" required readonly>
 
-          <label for="text"><b>S Charge 13%</b></label>
-          <input type="text" placeholder="Category Name" name="charge" required>
+          <label for="text"><b>Shipping Charge</b></label>
+          <input id="shipping_charge" type="number" placeholder="Category Name" name="charge" value="0" required>
 
-          <label for="text"><b>Vat 10%</b></label>
-          <input type="text" placeholder="Vat" name="vat" required>
+          <label for="text"><b>Vat 13%</b></label>
+          <input type="text" placeholder="Vat" name="vat" value="13" readonly>
 
           <label for="text"><b>Discount</b></label>
-          <input type="text" placeholder="Enter Discount" name="discount" required>
+          <input id="discount" type="text" placeholder="Enter Discount" name="discount" value="0" required>
 
           <label for="text"><b>Net Amount</b></label>
-          <input type="text" placeholder="Net Amount" name="namount" required>
+          <input type="text" placeholder="Net Amount" name="namount" readonly>
 
 
-          <button type="submit" class="btn"><span class="material-icons-sharp">print</span></button>
-          <button type="submit" class="btn close">Save Changes</button>
+          {{-- <button type="submit" class="btn"><span class="material-icons-sharp">print</span></button> --}}
+        <a href="/bill"><button><span class="material-icons-sharp">print</span></button></a>
+          <button type="submit" class="btn close">Save</button>
           <button class="close" id="close-btn" onclick="closeForm()">
             <span class="material-icons-sharp">close</span>
           </button>
@@ -79,6 +80,116 @@
           <!-- <button type="button" class="btn cancel" onclick="closeForm()"><span class="material-icons-sharp">edit</span></button> -->
         </form>
       </div>
+
+          <!--bill form-->
+    <div class="form-popup category-form" id="edit-category-form">
+           <form action="/bill" class="form-container-product" method="POST">
+     @csrf
+     @method('PATCH')
+        {{-- <div class="wrapper" id="printableArea"> --}}
+            <div class="invoice_wrapper">
+                <div class="header">
+                    <div class="logo_invoice_wrap">
+                        <div class="logo_sec">
+                            <img src="./images/logo.png" alt="code logo">
+                            <div class="title_wrap">
+                                <p class="bold">
+                                    <h2>Cargo<span class="danger">REX</span></h2>
+                                </p>
+                                <h1 class="sub_title">Private Limited</h1>
+                            </div>
+                        </div>
+                        <div class="invoice_sec">
+                            <p class="invoice bold">INVOICE</p>
+                            <p class="invoice_no">
+                                <span class="bold">Invoice</span>
+                                {{-- <input class="form-control" name="name" value="{{ $bills->name }}"> --}}
+                                <span>Bill No</span>
+                            </p>
+                            <p class="date">
+                                <span class="bold">Date</span>
+                                <span>08/Jan/2022</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bill_total_wrap">
+                        <div class="bill_sec">
+                            {{-- <p>Bill To</p> --}}
+                            <p class="bold name">Client Name</p>
+                            <span>
+                                Client Address<br />
+                                Client Phone
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="body">
+                    <table id="bill">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Products</th>
+                            <th>Rate</th>
+                            <th>QTY</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+          {{-- @if(isset($orders))
+          @foreach($orders as $index => $order) --}}
+                        <tr>
+                            <td>1</td>
+                            <td>Box</td>
+                            <td>10</td>
+                            <td>12</td>
+                            <td>120</td>
+                        </tr>
+                                  {{-- @endforeach
+          @endif --}}
+                    </tbody>
+                    </table>
+
+                    <div class="paymethod_grandtotal_wrap">
+                        <img src="./images/qrcode.png" class="image-card" alt="workers">
+                        <div class="grandtotal_sec">
+                            <p class="bold">
+                                <span>Gross Amount</span>
+                                <span>$7500</span>
+                            </p>
+                            <p>
+                                <span>Service Charge (13%)</span>
+                                <span>$200</span>
+                            </p>
+                            <p>
+                                <span>VAT Charge (10%)</span>
+                                <span>-$700</span>
+                            </p>
+                            <p>
+                                <span>Discount</span>
+                                <span>-$700</span>
+                            </p>
+                            <p class="bold">
+                                <span>Net Amount</span>
+                                <span>$7000.0</span>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="total_wrap">
+                        <h3>Bill Status</h3>
+                        <select name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:2px solid #7d8da1;">
+                            <option>--Select status--</option>
+                            <option value="1">Paid</option>
+                            <option value="0">Unpaid</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        {{-- </div> --}}
+    </form>
+    </div>
+
       <button type="button" id="export_button" class="excel">Excel</button>
 
 
@@ -89,6 +200,9 @@
 
     <div class="recent-orders">
       <h2>Orders</h2>
+      @if(isset($orders) && count($orders) > 0)
+    <p>Total number of orders: {{ count($orders) }}</p>
+@endif
       <table id="category_data">
         <thead>
           <tr>
@@ -98,6 +212,7 @@
             <th>Date Time</th>
             <th>ProduCt Qty</th>
             <th>Amount</th>
+            <th>Bill Status</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -111,10 +226,10 @@
             <td>{{ $order['created_at'] }}</td>
             <td>{{ count($order['products'])}}</td>
             <td>{{ $order['net_amount']}}</td>
+            <td> {{  $order['is_paid'] ? 'Paid' : 'Not Paid' }} </td>
             <td class="action">
-              <a href="/order/{{ $order['id'] }}/products"><button><span class="material-icons-sharp">print</span></button></a>
-              <button><span class="material-icons-sharp">edit</span></button>
-              <button><span class="material-icons-sharp">delete</span></button>
+              <a href="/bill/{{ $order['id'] }}"><button><span class="material-icons-sharp">print</span></button></a>
+              <a href="/order/delete/{{$order->id}}" onclick="return confirm('Are your sure?')"><button><span  class="material-icons-sharp">delete</span></button></a>
             </td>
 
 
@@ -124,7 +239,6 @@
 
         </tbody>
       </table>
-      <!-- <a href="#">Show All</a> -->
     </div>
  @endsection
 
@@ -133,11 +247,30 @@
  <script>
   var products = [];
   var current_product = [];
-var totalAmount = 0;
+  var totalAmount = 0;
 
   var row_count = 0;
+
   $(document).ready(function(){
     fetchProducts();
+      $(document).on('input', '.product-quantity', function() {
+          // Find the closest row element
+          var row = $(this).closest('tr');
+
+          // Find the row index
+          var rowIndex = row.index();
+          updateProductRate(rowIndex)
+      });
+
+      $(document).on('input', '#shipping_charge', function() {
+          let charge = $(this).val();
+          calculateTotal()
+      });
+
+      $(document).on('input', '#discount', function() {
+          let charge = $(this).val();
+          calculateTotal()
+      });
   });
 
   function addProductRow(){
@@ -151,14 +284,14 @@ var totalAmount = 0;
     let row =  `<tr class="height1" id="row-${row_count}">
 
                 <td>
-                  <select id="product-${ row_count}" name="product[]" onchange="updateProductRate(${row_count})">
+                  <select id="product-${ row_count}" name="product[]" onchange="updateProductRate(${row_count})" required>
+                    <option value="">Select the product</option>
                     ${productOptions}
                   </select>
                 </td>
-                <td><input id="product-quantity-${row_count}" type="number" min="1" value="1" placeholder="Enter Qty" name="qty[]" onclick="updatePrice(${row_count})" required></td>
+                <td><input class="product-quantity" id="product-quantity-${row_count}" type="number" min="1" value="1" placeholder="Enter Qty" name="qty[]" required></td>
                 <td><input type="text"  placeholder="" id="product-rate-${row_count}" name="rate" readonly></td>
                 <td><input id="product-amount-${row_count}" type="text"  placeholder="" name="amount" readonly></td>
-
                 <td >
                   <button class="order-btn"><span class="material-icons-sharp">delete</span></button>
                 </td>
@@ -173,9 +306,9 @@ var totalAmount = 0;
 
   function fetchProducts(){
     $.get("/getAllProducts", function(data, status){
-      console.log(status)
       if(status === "success"){
         products = data.products;
+        addProductRow();//Default 1 row
       }
     });
   }
@@ -196,6 +329,27 @@ var totalAmount = 0;
     totalAmount += amount;
     $('#product-amount-' + index).val(amount);
 
+    calculateTotal();
+
+  }
+
+  function calculateTotal(){
+      let grossTotal = 0;
+        console.log( typeof $("input[name='discount']").val());
+
+      $('input[name="amount"]').map(function() {
+          grossTotal += parseFloat($(this).val());
+      });
+      let shipping_charge = $("input[name='charge']").val();
+      shipping_charge = (shipping_charge === '') ?  0 : shipping_charge;
+
+      let discount = $("input[name='discount']").val();
+      discount = (discount ==='') ?  0 : discount;
+
+      let vat = 0.13 * grossTotal;
+      let net_amount = grossTotal + vat + parseFloat(shipping_charge) - parseFloat(discount);
+      $("input[name='gamount']").val(grossTotal)
+      $("input[name='namount']").val(net_amount)
   }
 
   function updatePrice(row){

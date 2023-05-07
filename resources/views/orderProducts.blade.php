@@ -11,7 +11,6 @@
             <th>#</th>
             <th>Product Name</th>
             <th>Quantity</th>
-            <th>Price</th>
           </tr>
         </thead>
         <tbody>
@@ -22,15 +21,9 @@
             <td>{{$index + 1}}</td>
             <td>{{$product->name}}</td>
             <td>{{ $product->pivot->quantity }}</td>
-            <td>{{ number_format($product->price * $product->quantity,2,'.') }}</td>
           </tr>
           @endforeach
         @endif
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> ea5a34a014353af9ff3a5adab586511c8fc20704
         </tbody>
       </table>
       <!-- <a href="#">Show All</a> -->

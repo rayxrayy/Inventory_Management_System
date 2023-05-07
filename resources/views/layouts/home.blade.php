@@ -21,7 +21,6 @@
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -275,7 +274,7 @@ main .recent-orders table:hover {
 main table tbody td {
     height: 2.8rem;
     border-bottom: 1px solid var(--color-light);
-    color: var(--color-dark-variant);
+    color: #1b1e22;
     padding: 4px 0;
 }
 

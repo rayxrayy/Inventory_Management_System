@@ -13,7 +13,6 @@ class imscontroller extends Controller
     public function index(Request $req){
     return view('dashboard');
 }
-
 public function home(){
     return view('dashboard');
 }
@@ -38,4 +37,7 @@ public function setting(){
     return view('setting');
 }
 
+public function user(){
+    return view('userdashboard');
+}
 }

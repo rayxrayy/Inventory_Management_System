@@ -37,7 +37,7 @@ body{
 }
 
 .wrapper{
-    background: var(--white);
+    background: #f6f6f9;
     padding: 30px;
     /* extra */
     /* display: flex;
@@ -54,7 +54,8 @@ body{
 .invoice_wrapper .header .bill_total_wrap{
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    padding-left:30px;
+    padding-right: 30px;
 }
 
 .invoice_wrapper .header .logo_sec{
@@ -127,6 +128,20 @@ span.danger {
     border-bottom: 0px;
 }
 
+.body {
+    padding-top: 20px;
+}
+
+.total_wrap{
+    display: flex;
+    padding-left: 80%;
+    flex-direction: column;
+    padding-right: 5px;
+}
+select {
+    padding: 5px;
+}
+
 .invoice_wrapper .body .main_table .row{
     display: flex;
     border-bottom: 1px solid var(--secondary);
@@ -144,7 +159,7 @@ span.danger {
 .invoice_wrapper .body .paymethod_grandtotal_wrap{
     display: flex;
     justify-content: flex-end;
-    padding: 25px 0 30px;
+    padding: 5px 0 0;
     align-items: flex-end;
 }
 
@@ -182,7 +197,7 @@ span.danger {
 }
 
 .invoice_wrapper .footer{
-    padding: 30px;
+    padding: 5px;
 }
 
 .invoice_wrapper .footer > p{

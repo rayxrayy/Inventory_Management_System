@@ -3,8 +3,16 @@
 <h1>Manage Category</h1>
 <div class="category">
     <button type="button" id="add_category" onclick="openForm()">Add Category</button>
+<<<<<<< HEAD
+
     <!-- Add Category Form -->
     <div class="form-popup category-form" id="myForm">
+
+
+=======
+    <!-- Add Category Form -->
+    <div class="form-popup" id="myForm">
+>>>>>>> fb7bce5 (Complected crud operation)
         <form method="post" action="" class="form-container">
             @csrf
             <h1>Add Category</h1>
@@ -15,10 +23,11 @@
             <label for="status"><b>Status</b></label>
 
             <select name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:1px solid #7d8da1;">
+                <option>--Select Status--</option>
                 <option value="1">Active</option>
                 <option value="0">Inactive</option>
             </select>
-            <button type="submit" class="btn">Save Changes</button>
+            <button type="submit" class="btn">Save</button>
             <button class="close" id="close-btn" onclick="closeForm()">
                 <span class="material-icons-sharp">close</span>
             </button>
@@ -40,11 +49,12 @@
             <label for="status"><b>Status</b></label>
 
             <select id="category-status" name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:1px solid #7d8da1;">
+            <option>--Select Status--</option>
                 <option value="1">Active</option>
                 <option value="0">Inactive</option>
             </select>
             <button type="submit" class="btn">Save Changes</button>
-            <button type="button" class="close" onclick="closeEditForm()">
+            <button type="button" class="close-btn" onclick="closeEditFormm()">
                 <span class="material-icons-sharp">close</span>
             </button>
 
@@ -58,7 +68,8 @@
 
 <div class="recent-orders">
     <h2>Categories</h2>
-
+ @if(isset($categories) && count($categories) > 0)
+    <p>Total number of categories: {{ count($categories) }}</p>
         <table id="category_data">
         <thead>
             <tr>
@@ -69,7 +80,7 @@
             </tr>
         </thead>
         <tbody>
-            @if(isset($categories))
+            {{-- @if(isset($categories)) --}}
             @foreach ($categories as $category )
             <tr>
 
@@ -79,6 +90,7 @@
                     <button onclick="editCategory({{ $category }})"><span class="material-icons-sharp">edit</span></button>
                     <a href="/category/delete/{{$category->id}}" onclick="return confirm('Are your sure?')"><button><span  class="material-icons-sharp">delete</span></button></a>
                 </td>
+
 
 
             </tr>

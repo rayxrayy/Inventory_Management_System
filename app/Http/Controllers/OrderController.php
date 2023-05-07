@@ -13,31 +13,20 @@ class OrderController extends Controller
         // dd($orders);
 
         return view('order', compact('orders'));
-        // $categories = order::all();
-        // // dd($categories);
-        // return view('order',compact('orders'));
     }
 
-    // public function store(Request $request){
-    //     $category = new order();
-    //     $category->name = $request->input('name');
-    //     $category->status = $request->input('status');
-    //     $category->save();
-
-    //     return redirect('/order');
-    // }
     public function store(Request $request)
     {
-        // echo 'asdfghj';
+
         $order = new Order();
         $order->client_name = $request->input('name');
         $order->client_address = $request->input('address');
         $order->client_phone = $request->input('phone');
-        $order->gross_amount = $request->input('gross_amount')??null;
+        $order->gross_amount = $request->input('gamount')??null;
         $order->vat = $request->input('vat') ??null;
-        $order->s_charge = $request->input('s_charge') ??null;
+        $order->s_charge = $request->input('charge') ??null;
         $order->discount = $request->input('discount');
-        $order->net_amount = $request->input('net_amount') ?? null;
+        $order->net_amount = $request->input('namount') ?? null;
 
         $order->save();
 
@@ -53,5 +42,13 @@ class OrderController extends Controller
         $products = Order::find($order_id)->products;
 
         return view('orderProducts', compact('products'));
+    }
+
+      // Delete a order
+    public function destroy($id)
+    {
+        $order = order::find($id);
+        $order->delete();
+        return redirect('/order')->with(['message'   => 'order deleted successfully']);
     }
 }

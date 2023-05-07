@@ -14,6 +14,7 @@ class CategoryController extends Controller
     }
     public function store(Request $request){
         $category = new category();
+        // dd($category);
         $category->name = $request->input('name');
         $category->status = $request->input('status');
         $category->save();
@@ -36,6 +37,7 @@ class CategoryController extends Controller
         return redirect('/category')->with(['message'   => 'Category deleted successfully']);
     }
 
+    // Edit a category
     public function update(Request $request)
     {
         if(!$request->has('id')){
