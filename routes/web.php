@@ -9,12 +9,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\resetpasswordcontroller;
 use App\Http\Controllers\SettingController;
 use App\Models\member;
+// use App\Http\Controllers\DashboardController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -33,21 +35,24 @@ use Illuminate\Support\Str;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',function(){
-    if(Auth::user()){
-        return view('dashboard');
-    }
-    else{
-        $message= "Incorrect Password";
-    }
-    return view('login')->with('failed', 'Incorrect password');;
-});
+
 
 Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::get('/login',[LoginController::class,'showLoginForm']);
 
+// Route::get('/userdashboard',[imscontroller::class,'user']);
+// if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $password], $remember)) {
+//     return redirect()->intended('/admin/dashboard');
+// } elseif (Auth::guard('member')->attempt(['email' => $email, 'password' => $password], $remember)) {
+//     return redirect()->intended('/user/dashboard');
+// } else {
+//     return redirect()->back()->with('failed', 'Incorrect email or password!');
+// }
+
+
 Route::middleware('auth')->group(function(){
-    Route::get('/dashboard', [imscontroller::class, 'index'])->name('home');
+    Route::get('/',[DashboardController::class,'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
 });
 
 Route::get('/category',[CategoryController::class,'index']);
@@ -67,6 +72,7 @@ Route::get('/member/delete/{id}',[MemberController::class,'destroy']);
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/{order_id}/products', [OrderController::class, 'orderProducts']);
 Route::post('/order',[OrderController::class,'store']);
+// Route::patch('/bill',[BillController::class,'update']);
 Route::get('/order/delete/{id}',[OrderController::class,'destroy']);
 Route::delete('/orders/{order}', [OrderController::class, 'destroy']);
 
@@ -84,7 +90,8 @@ Route::post('/setting',[SettingController::class,'store']);
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::get('/bill', [BillController::class, 'index'])->name('bill');
+Route::get('/bill/{order_id}', [BillController::class, 'index'])->name('bill');
+Route::get('/bill/paid/{order_id}', [BillController::class, 'confirmPayment'])->name('bill.confirmPayment');
 
 Route::get('/test',function(){
     $d = User::all();

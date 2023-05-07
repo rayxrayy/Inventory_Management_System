@@ -21,7 +21,6 @@
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
-
 * {
     margin: 0;
     padding: 0;

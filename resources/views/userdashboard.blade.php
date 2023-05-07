@@ -28,7 +28,7 @@
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a id="category" href="./category">
+                <a id="category" href="./category" >
                     <span class="material-icons-sharp">category</span>
                     <h3>Category</h3>
                 </a>
@@ -40,11 +40,11 @@
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
-                <a id="member" href="./member">
+                {{-- <a id="member" href="./member">
                     <span class="material-icons-sharp">groups</span>
                     <h3>Members</h3>
-                </a>
-                <a id="company" href="./company" data-id="asdsadasdd" data-name="{{ Request::is('company') ? 'asdsad' : '' }}" class="{{ Request::is('company') ? 'active' : '' }}">
+                </a> --}}
+                <a id="company" href="./company" data-id = "asdsadasdd" data-name = "{{ Request::is('company') ? 'asdsad' : '' }}" class="{{ Request::is('company') ? 'active' : '' }}">
                     <span class="material-icons-sharp">apartment</span>
                     <h3>Company</h3>
                 </a>
@@ -67,11 +67,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Total Sales</h3>
-                             @if(isset($data['total_sales']))
-                            <h1>{{ $data['total_sales'] }}</h1>
-
-                            @endif
-
+                            <h1>25,000</h1>
                         </div>
                         <div class="progress">
                             <div class="number">
@@ -88,10 +84,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Total Categories</h3>
-                               @if(isset($data['total_category']))
-                            <h1>{{ $data['total_category'] }}</h1>
-
-                            @endif
+                            <h1>25,000</h1>
                         </div>
                         <div class="progress">
                             <div class="number">
@@ -109,10 +102,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Total Products</h3>
-                                @if(isset($data['total_product']))
-                            <h1>{{ $data['total_product'] }}</h1>
-
-                            @endif
+                            <h1>25,675</h1>
                         </div>
                         <div class="progress">
                             <div class="number">
@@ -129,15 +119,11 @@
                     <span class="material-icons-sharp">groups_2</span>
                     <div class="middle">
                         <div class="left">
-
                             <h3>Total Members</h3>
-                            @if(isset($data['total_member']))
-                            <h1>{{ $data['total_member'] }}</h1>
-
-                            @endif
+                            <h1>5</h1>
                         </div>
                         <div class="progress">
-                            <div class="number">
+                    <div class="number">
                                 <img src="./images/teami.jpg" alt="">
                                 <!-- <p>44%</p> -->
                             </div>
@@ -151,13 +137,10 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Unpaid Orders</h3>
-                               {{-- @if(isset($data['total_member']))
-                            <h1>{{ $data['total_member'] }}</h1>
-
-                            @endif --}}
+                            <h1>25,675</h1>
                         </div>
                         <div class="progress">
-                            <div class="number">
+                 <div class="number">
                                 <img src="./images/unorder.jpg" alt="">
                                 <!-- <p>44%</p> -->
                             </div>
@@ -171,14 +154,10 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Paid Orders</h3>
-                            {{-- @if(isset($categories) && count($categories) > 0)
-                            <h1>{{ count($categories) }}</h1>
-                            @else
-                            <h1>0</h1>
-                            @endif --}}
+                            <h1>25,675</h1>
                         </div>
                         <div class="progress">
-                            <div class="number">
+                <div class="number">
                                 <img src="./images/order.jpg" alt="">
                                 <!-- <p>44%</p> -->
                             </div>
@@ -204,8 +183,7 @@
                 <div class="profile">
                     <div class="info">
                         <p>Hey, <b>{{ auth()->user()->name }}</b></p>
-                        <small class="text-muted">Admin</small>
-                        {{-- <small class="text-muted" ><input type="text" value="User" style="color:#677483" disabled/></small> --}}
+                        <small class="text-muted">Member</small>
                     </div>
                     <div class="profile-photo">
                         <img src="./images/photo.jpg" alt="">
@@ -216,7 +194,7 @@
 
             <div class="main2">
                 <div class="recent-orders">
-                    <h2>Recent Updates</h2>
+                    <h2>Recent Orders</h2>
                     <table>
                         <thead>
                             <tr>
@@ -226,20 +204,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                @if(Auth::check())
-                            <tr>
-                                <td>{{ Auth::user()->name }} just logged in.</td>
+                                <td>Your mom just logged in.</td>
                                 <td><span class="material-icons-sharp">done</span></td>
-                            </tr>
-                            @endif
-                            </tr>
 
-                              {{-- @if ($latestNotification)
-                <tr>
-                    <td>{{ $latestNotification->message }}</td>
-                    <td><span class="material-icons-sharp">done</span></td>
-                </tr>
-                @endif --}}
+                            </tr>
                         </tbody>
                     </table>
                     <!-- <a href="#">Show All</a> -->
@@ -247,7 +215,7 @@
             </div>
 
             <div class="recent-updates">
-                <h2>Recent Orders</h2>
+                <h2>Recent Updates</h2>
                 <div class="updates">
                     <div class="update">
                         <div class="profile-photo">

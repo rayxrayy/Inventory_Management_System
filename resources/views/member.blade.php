@@ -47,7 +47,7 @@
         <form method="post" action="" class="form-container-product">
             @csrf
              @method('PATCH')
-            <h1>Add Member</h1>
+            <h1>Edit Member</h1>
 
 <input id="member-id" type="hidden" name="id" />
             <label for="text"><b>Member Name</b></label>
@@ -84,6 +84,8 @@
 
 <div class="recent-orders">
     <h2>Members</h2>
+    @if(isset($members) && count($members) > 0)
+    <p>Total number of members: {{ count($members) }}</p>
     <table id="category_data">
         <thead>
             <tr>
@@ -95,7 +97,7 @@
             </tr>
         </thead>
         <tbody>
-            @if(isset($members))
+            {{-- @if(isset($members)) --}}
             @foreach ($members as $member )
             <tr>
                 <td>{{ $member->name }}</td>
