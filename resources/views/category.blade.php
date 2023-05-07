@@ -60,7 +60,8 @@
 
 <div class="recent-orders">
     <h2>Categories</h2>
-
+ @if(isset($categories) && count($categories) > 0)
+    <p>Total number of categories: {{ count($categories) }}</p>
         <table id="category_data">
         <thead>
             <tr>
@@ -71,7 +72,7 @@
             </tr>
         </thead>
         <tbody>
-            @if(isset($categories))
+            {{-- @if(isset($categories)) --}}
             @foreach ($categories as $category )
             <tr>
 
@@ -81,6 +82,7 @@
                     <button onclick="editCategory({{ $category }})"><span class="material-icons-sharp">edit</span></button>
                     <a href="/category/delete/{{$category->id}}" onclick="return confirm('Are your sure?')"><button><span  class="material-icons-sharp">delete</span></button></a>
                 </td>
+
 
 
             </tr>

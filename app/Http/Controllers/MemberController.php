@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class MemberController extends Controller
 {
     public function index(){
         $members = member::all();
+
         // dd($members);
+        // $membersCount = Member::count();
+// dd($membersCount);
         return view('member',compact('members'));
     }
     public function store(Request $request){
@@ -26,6 +30,30 @@ class MemberController extends Controller
         return redirect('/member');
         // dd($request);
     }
+
+//     public function stores(Request $request)
+// {
+//     // validate request data
+//     $validatedData = $request->validate([
+//         'name' => 'required',
+//         'password' => 'required',
+//         'email' => 'required|email|unique:members',
+//         'phone' => 'required',
+//         'address' => 'required',
+//         'gender' => 'required',
+//     ]);
+
+//     // create member
+//     $member = Member::create($validatedData);
+
+//     // create notification
+//     $notificationMessage = 'New member added: ' . $member->name;
+//     Notification::create(['message' => $notificationMessage]);
+
+//     // redirect to members index page
+//     return redirect()->route('members.index')->with('success', 'Member added successfully.');
+// }
+
 
    // Delete a member
    public function destroy($id)

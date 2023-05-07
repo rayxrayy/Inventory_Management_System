@@ -26,9 +26,10 @@
                                 <input type="text" id="emailForm" name="email" required>
 
                             </div>
-                            @if (session()->has('failed'))
+                            {{-- @if (session()->has('failed'))
                         <div class="error-message">{{ session()->get('failed') }}</div>
-                        @endif
+                        <div>{{  }}</div>
+                        @endif --}}
                             <div class="form-item">
                                 <label for="passwordForm">Enter Password</label>
                                 <input type="password" id="passwordForm" name="password" required>

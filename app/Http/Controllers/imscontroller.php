@@ -36,4 +36,8 @@ public function company(){
 public function setting(){
     return view('setting');
 }
+
+public function user(){
+    return view('userdashboard');
+}
 }

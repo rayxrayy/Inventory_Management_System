@@ -3,17 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bill;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class BillController extends Controller
 {
-    public function index()
+    public function index($order_id)
     {
-        $bills = bill::all();
-        // dd($bills);
-        return view('bill',compact('bills'));
+        $bill = Order::with('products')->find($order_id);
+
+
+        // dd($bill);
+        return view('bill',compact('bill'));
     }
 
+    public function confirmPayment($order_id){
+
+        order::where('id',$order_id)->update(['is_paid' => 1]);
+
+        return redirect('/bill/' . $order_id)->with(['message'  => "ORder Payment accepted"]);
+    }
     public function store(Request $request){
         $bill = new bill();
         // dd($bill);
@@ -58,4 +67,11 @@ class BillController extends Controller
 
         return redirect('/bill');
     }
+    // $file_name = "noimage.jpg"; //default name
+
+    //     if ($request->hasFile('product_thumb')) {
+    //         $file = $request->file('product_thumb'); name wla attribute
+    //         $file_name = $file->hashName();
+    //         $file->storeAs('public/uploads/products', $file_name);
+    //     }
 }

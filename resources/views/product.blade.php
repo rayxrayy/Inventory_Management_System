@@ -56,8 +56,9 @@
             @method('PATCH')
             <h1>Add Product</h1>
             <label for="text"><b>Image</b></label>
-            <button class="space"><span class="material-icons-sharp">folder</span></button>
-            <!-- <input type="text" placeholder="Enter Category Name" name="name" required> -->
+            <button id="uploadBtn" class="space"><span class="material-icons-sharp">folder</span></button>
+            <div id="imageContainer" style="display:none; width: 375px; height: 211px;"></div>
+
             <input id="product-id" type="hidden" name="id" />
             <label for="text"><b>Product Name</b></label>
             <input id="product-name" type="text" placeholder="Enter Product Name" name="name" required>
@@ -85,8 +86,8 @@
                 <option value="0">Inactive</option>
             </select>
 
-            <button type="submit" class="btn">Save</button>
-            <button class="close" id="close-btn" onclick="closeEditForm()">
+            <button type="submit" class="btn">Save Changes</button>
+            <button class="close" id="close-btn" onclick="closeproductEditForm()">
                 <span class="material-icons-sharp">close</span>
             </button>
 
@@ -104,6 +105,8 @@
 
 <div class="recent-orders">
     <h2>Products</h2>
+     @if(isset($products) && count($products) > 0)
+    <p>Total number of products: {{ count($products) }}</p>
     <table id="category_data">
         <thead>
             <tr>
@@ -134,6 +137,7 @@
                 </td>
             </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
 </div>

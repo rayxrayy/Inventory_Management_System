@@ -81,30 +81,115 @@
         </form>
       </div>
 
-          <!--Edit form-->
+          <!--bill form-->
     <div class="form-popup category-form" id="edit-category-form">
-        <form method="post" action="/category" class="form-container">
-            @csrf
-            @method('PATCH')
-            <h1>Edit Category</h1>
-            <input id="category-id" type="hidden" name="id"/>
-            <label for="text"><b>Category Name</b></label>
-            <input id="category-name" type="text" placeholder="Enter Category Name" name="name" required>
+           <form action="/bill" class="form-container-product" method="POST">
+     @csrf
+     @method('PATCH')
+        {{-- <div class="wrapper" id="printableArea"> --}}
+            <div class="invoice_wrapper">
+                <div class="header">
+                    <div class="logo_invoice_wrap">
+                        <div class="logo_sec">
+                            <img src="./images/logo.png" alt="code logo">
+                            <div class="title_wrap">
+                                <p class="bold">
+                                    <h2>Cargo<span class="danger">REX</span></h2>
+                                </p>
+                                <h1 class="sub_title">Private Limited</h1>
+                            </div>
+                        </div>
+                        <div class="invoice_sec">
+                            <p class="invoice bold">INVOICE</p>
+                            <p class="invoice_no">
+                                <span class="bold">Invoice</span>
+                                {{-- <input class="form-control" name="name" value="{{ $bills->name }}"> --}}
+                                <span>Bill No</span>
+                            </p>
+                            <p class="date">
+                                <span class="bold">Date</span>
+                                <span>08/Jan/2022</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bill_total_wrap">
+                        <div class="bill_sec">
+                            {{-- <p>Bill To</p> --}}
+                            <p class="bold name">Client Name</p>
+                            <span>
+                                Client Address<br />
+                                Client Phone
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="body">
+                    <table id="bill">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Products</th>
+                            <th>Rate</th>
+                            <th>QTY</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
 
-            <label for="status"><b>Status</b></label>
+                    <tbody>
+          {{-- @if(isset($orders))
+          @foreach($orders as $index => $order) --}}
+                        <tr>
+                            <td>1</td>
+                            <td>Box</td>
+                            <td>10</td>
+                            <td>12</td>
+                            <td>120</td>
+                        </tr>
+                                  {{-- @endforeach
+          @endif --}}
+                    </tbody>
+                    </table>
 
-            <select id="category-status" name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:1px solid #7d8da1;">
-                <option value="1">Active</option>
-                <option value="0">Inactive</option>
-            </select>
-            <button type="submit" class="btn">Save Changes</button>
-            <button type="button" class="close" onclick="closeEditForm()">
-                <span class="material-icons-sharp">close</span>
-            </button>
+                    <div class="paymethod_grandtotal_wrap">
+                        <img src="./images/qrcode.png" class="image-card" alt="workers">
+                        <div class="grandtotal_sec">
+                            <p class="bold">
+                                <span>Gross Amount</span>
+                                <span>$7500</span>
+                            </p>
+                            <p>
+                                <span>Service Charge (13%)</span>
+                                <span>$200</span>
+                            </p>
+                            <p>
+                                <span>VAT Charge (10%)</span>
+                                <span>-$700</span>
+                            </p>
+                            <p>
+                                <span>Discount</span>
+                                <span>-$700</span>
+                            </p>
+                            <p class="bold">
+                                <span>Net Amount</span>
+                                <span>$7000.0</span>
+                            </p>
+                        </div>
 
-            <!-- <button type="button" class="btn cancel" onclick="closeForm()"><span class="material-icons-sharp">edit</span></button> -->
-        </form>
+                    </div>
+                    <div class="total_wrap">
+                        <h3>Bill Status</h3>
+                        <select name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:2px solid #7d8da1;">
+                            <option>--Select status--</option>
+                            <option value="1">Paid</option>
+                            <option value="0">Unpaid</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        {{-- </div> --}}
+    </form>
     </div>
+
       <button type="button" id="export_button" class="excel">Excel</button>
 
 
@@ -115,6 +200,9 @@
 
     <div class="recent-orders">
       <h2>Orders</h2>
+      @if(isset($orders) && count($orders) > 0)
+    <p>Total number of orders: {{ count($orders) }}</p>
+@endif
       <table id="category_data">
         <thead>
           <tr>
@@ -124,6 +212,7 @@
             <th>Date Time</th>
             <th>ProduCt Qty</th>
             <th>Amount</th>
+            <th>Bill Status</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -137,8 +226,9 @@
             <td>{{ $order['created_at'] }}</td>
             <td>{{ count($order['products'])}}</td>
             <td>{{ $order['net_amount']}}</td>
+            <td> {{  $order['is_paid'] ? 'Paid' : 'Not Paid' }} </td>
             <td class="action">
-              <a href="/bill"><button><span class="material-icons-sharp">print</span></button></a>
+              <a href="/bill/{{ $order['id'] }}"><button><span class="material-icons-sharp">print</span></button></a>
               <a href="/order/delete/{{$order->id}}" onclick="return confirm('Are your sure?')"><button><span  class="material-icons-sharp">delete</span></button></a>
             </td>
 

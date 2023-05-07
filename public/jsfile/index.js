@@ -83,7 +83,7 @@ function openForm() {
     document.getElementById('edit-product-form').style.display = "block";
   }
 
-  function closeEditForm(){
+  function closeproductEditForm(){
       document.getElementById("edit-product-form").style.display = "none";
   }
 
@@ -104,6 +104,22 @@ function openForm() {
       document.getElementById("edit-member-form").style.display = "none";
   }
 
+   //add billform
+
+   function billform(bill){
+    document.getElementById('bill-id').value = bill.id;
+    document.getElementById('bill-name').value = bill.name;
+    document.getElementById('bill-password').value = bill.password;
+    document.getElementById('bill-email').value = bill.email;
+    document.getElementById('bill-phone').value = bill.phone;
+    document.getElementById('bill-address').value = bill.address;
+    document.getElementById('gender').value = bill.gender;
+    document.getElementById('edit-bill-form').style.display = "block";
+  }
+
+  function closebillform(){
+      document.getElementById("edit-bill-form").style.display = "none";
+  }
 
 
 // HTML to Excel
@@ -125,37 +141,35 @@ function html_table_to_excel(type)
     });
 
 
-
-
 //image load product page
 
-// const uploadBtn = document.getElementById('uploadBtn');
-// const imageContainer = document.getElementById('imageContainer');
+const uploadBtn = document.getElementById('uploadBtn');
+const imageContainer = document.getElementById('imageContainer');
 
-// uploadBtn.addEventListener('click', () => {
-//   const input = document.createElement('input');
-//   input.type = 'file';
-//   input.accept = 'image/jpg , image/png';
+uploadBtn.addEventListener('click', () => {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/jpg , image/png';
 
-//   input.addEventListener('change', (event) => {
-//     const file = event.target.files[0];
+  input.addEventListener('change', (event) => {
+    const file = event.target.files[0];
 
-//     const reader = new FileReader();
-//     reader.addEventListener('load', (event) => {
-//       const image = new Image();
-//       image.src = event.target.result;
-//       image.style.maxWidth = '100%';
-//       image.style.maxHeight = '100%';
-//       imageContainer.innerHTML = '';
-//       imageContainer.appendChild(image);
-//       imageContainer.style.display = 'block';
-//     });
+    const reader = new FileReader();
+    reader.addEventListener('load', (event) => {
+      const image = new Image();
+      image.src = event.target.result;
+      image.style.maxWidth = '100%';
+      image.style.maxHeight = '100%';
+      imageContainer.innerHTML = '';
+      imageContainer.appendChild(image);
+      imageContainer.style.display = 'block';
+    });
 
-//     reader.readAsDataURL(file);
-//   });
+    reader.readAsDataURL(file);
+  });
 
-//   input.click();
-// });
+  input.click();
+});
 
 //delete button of category page
 function deleteRow(r) {
@@ -182,7 +196,14 @@ function editProfile() {
 //     document.body.innerHTML = originalContents;
 // }
 
-
+document.getElementById('logout').addEventListener('click', function(e) {
+    e.preventDefault();
+    // console.log("ok");
+    if (confirm('Are you sure you want to log out?')) {
+        // window.location.href = this.getAttribute('href');
+        // window.location.replace("/logout")
+    }
+});
 
 //add row to table (order form table)
 
