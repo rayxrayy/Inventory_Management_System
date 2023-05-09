@@ -40,16 +40,6 @@ use Illuminate\Support\Str;
 Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::get('/login',[LoginController::class,'showLoginForm']);
 
-// Route::get('/userdashboard',[imscontroller::class,'user']);
-// if (Auth::guard('admin')->attempt(['email' => $email, 'password' => $password], $remember)) {
-//     return redirect()->intended('/admin/dashboard');
-// } elseif (Auth::guard('member')->attempt(['email' => $email, 'password' => $password], $remember)) {
-//     return redirect()->intended('/user/dashboard');
-// } else {
-//     return redirect()->back()->with('failed', 'Incorrect email or password!');
-// }
-
-
 Route::middleware('auth')->group(function(){
     Route::get('/',[DashboardController::class,'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
@@ -72,7 +62,6 @@ Route::get('/member/delete/{id}',[MemberController::class,'destroy']);
 Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/{order_id}/products', [OrderController::class, 'orderProducts']);
 Route::post('/order',[OrderController::class,'store']);
-// Route::patch('/bill',[BillController::class,'update']);
 Route::get('/order/delete/{id}',[OrderController::class,'destroy']);
 Route::delete('/orders/{order}', [OrderController::class, 'destroy']);
 

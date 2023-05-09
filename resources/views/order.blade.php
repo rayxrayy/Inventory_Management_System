@@ -18,9 +18,6 @@
 
           </div>
 
-
-
-
           <label class="col-sm-5 control-label" for="text"><b>Client Name</b></label>
           <input type="text" placeholder="Enter Client Name" name="name" required>
 
@@ -30,7 +27,6 @@
           <label for="status"><b style="width:50%">Phone</b></label>
           <input type="text"  placeholder="Enter Client Phone" name="phone" required>
           <!-- <input type="password" placeholder="Enter Password" name="status" required> -->
-
 
           <div class="recent-orders belowtable">
           <table id="category_data">
@@ -45,15 +41,9 @@
               </tr>
             </thead>
             <tbody id = "product-table-body">
-
-
-
             </tbody>
           </table>
         </div>
-
-
-
           <label for="text"><b>Gross Amount</b></label>
           <input type="text" placeholder="Gross Amount" name="gamount" required readonly>
 
@@ -71,7 +61,7 @@
 
 
           {{-- <button type="submit" class="btn"><span class="material-icons-sharp">print</span></button> --}}
-        <a href="/bill"><button><span class="material-icons-sharp">print</span></button></a>
+        {{-- <a href="/bill"><button><span class="material-icons-sharp">print</span></button></a> --}}
           <button type="submit" class="btn close">Save</button>
           <button class="close" id="close-btn" onclick="closeForm()">
             <span class="material-icons-sharp">close</span>
@@ -81,128 +71,14 @@
         </form>
       </div>
 
-          <!--bill form-->
-    <div class="form-popup category-form" id="edit-category-form">
-           <form action="/bill" class="form-container-product" method="POST">
-     @csrf
-     @method('PATCH')
-        {{-- <div class="wrapper" id="printableArea"> --}}
-            <div class="invoice_wrapper">
-                <div class="header">
-                    <div class="logo_invoice_wrap">
-                        <div class="logo_sec">
-                            <img src="./images/logo.png" alt="code logo">
-                            <div class="title_wrap">
-                                <p class="bold">
-                                    <h2>Cargo<span class="danger">REX</span></h2>
-                                </p>
-                                <h1 class="sub_title">Private Limited</h1>
-                            </div>
-                        </div>
-                        <div class="invoice_sec">
-                            <p class="invoice bold">INVOICE</p>
-                            <p class="invoice_no">
-                                <span class="bold">Invoice</span>
-                                {{-- <input class="form-control" name="name" value="{{ $bills->name }}"> --}}
-                                <span>Bill No</span>
-                            </p>
-                            <p class="date">
-                                <span class="bold">Date</span>
-                                <span>08/Jan/2022</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="bill_total_wrap">
-                        <div class="bill_sec">
-                            {{-- <p>Bill To</p> --}}
-                            <p class="bold name">Client Name</p>
-                            <span>
-                                Client Address<br />
-                                Client Phone
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="body">
-                    <table id="bill">
-                    <thead>
-                        <tr>
-                            <th>S.N</th>
-                            <th>Products</th>
-                            <th>Rate</th>
-                            <th>QTY</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-          {{-- @if(isset($orders))
-          @foreach($orders as $index => $order) --}}
-                        <tr>
-                            <td>1</td>
-                            <td>Box</td>
-                            <td>10</td>
-                            <td>12</td>
-                            <td>120</td>
-                        </tr>
-                                  {{-- @endforeach
-          @endif --}}
-                    </tbody>
-                    </table>
-
-                    <div class="paymethod_grandtotal_wrap">
-                        <img src="./images/qrcode.png" class="image-card" alt="workers">
-                        <div class="grandtotal_sec">
-                            <p class="bold">
-                                <span>Gross Amount</span>
-                                <span>$7500</span>
-                            </p>
-                            <p>
-                                <span>Service Charge (13%)</span>
-                                <span>$200</span>
-                            </p>
-                            <p>
-                                <span>VAT Charge (10%)</span>
-                                <span>-$700</span>
-                            </p>
-                            <p>
-                                <span>Discount</span>
-                                <span>-$700</span>
-                            </p>
-                            <p class="bold">
-                                <span>Net Amount</span>
-                                <span>$7000.0</span>
-                            </p>
-                        </div>
-
-                    </div>
-                    <div class="total_wrap">
-                        <h3>Bill Status</h3>
-                        <select name="status" required style="width:100%;padding:15px;margin-bottom:20px;border:2px solid #7d8da1;">
-                            <option>--Select status--</option>
-                            <option value="1">Paid</option>
-                            <option value="0">Unpaid</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        {{-- </div> --}}
-    </form>
-    </div>
-
       <button type="button" id="export_button" class="excel">Excel</button>
-
-
-
-
-
     </div>
 
     <div class="recent-orders">
       <h2>Orders</h2>
-      @if(isset($orders) && count($orders) > 0)
-    <p>Total number of orders: {{ count($orders) }}</p>
-@endif
+      {{-- @if(isset($orders) && count($orders) > 0)
+    <p>Total number of orders: {{ count($orders) }}</p> --}}
+{{-- @endif --}}
       <table id="category_data">
         <thead>
           <tr>
@@ -227,7 +103,7 @@
             <td>{{ count($order['products'])}}</td>
             <td>{{ $order['net_amount']}}</td>
             <td> {{  $order['is_paid'] ? 'Paid' : 'Not Paid' }} </td>
-            <td class="action">
+            <td class="action" style="display: flex;padding-bottom: 75%;">
               <a href="/bill/{{ $order['id'] }}"><button><span class="material-icons-sharp">print</span></button></a>
               <a href="/order/delete/{{$order->id}}" onclick="return confirm('Are your sure?')"><button><span  class="material-icons-sharp">delete</span></button></a>
             </td>

@@ -69,7 +69,6 @@
                             <h3>Total Sales</h3>
                              @if(isset($data['total_sales']))
                             <h1>{{ $data['total_sales'] }}</h1>
-
                             @endif
 
                         </div>
@@ -133,7 +132,6 @@
                             <h3>Total Members</h3>
                             @if(isset($data['total_member']))
                             <h1>{{ $data['total_member'] }}</h1>
-
                             @endif
                         </div>
                         <div class="progress">
@@ -151,10 +149,10 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Unpaid Orders</h3>
-                               {{-- @if(isset($data['total_member']))
-                            <h1>{{ $data['total_member'] }}</h1>
+                               @if(isset($data['unpaid_amount']))
+                            <h1>{{ $data['unpaid_amount'] }}</h1>
 
-                            @endif --}}
+                            @endif
                         </div>
                         <div class="progress">
                             <div class="number">
@@ -171,11 +169,9 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Paid Orders</h3>
-                            {{-- @if(isset($categories) && count($categories) > 0)
-                            <h1>{{ count($categories) }}</h1>
-                            @else
-                            <h1>0</h1>
-                            @endif --}}
+                            @if(isset($data['paid_amount']))
+                            <h1>{{ $data['paid_amount'] }}</h1>
+                            @endif
                         </div>
                         <div class="progress">
                             <div class="number">
@@ -233,49 +229,16 @@
                             </tr>
                             @endif
                             </tr>
-
-                              {{-- @if ($latestNotification)
-                <tr>
-                    <td>{{ $latestNotification->message }}</td>
-                    <td><span class="material-icons-sharp">done</span></td>
-                </tr>
-                @endif --}}
                         </tbody>
                     </table>
-                    <!-- <a href="#">Show All</a> -->
                 </div>
             </div>
 
             <div class="recent-updates">
                 <h2>Recent Orders</h2>
                 <div class="updates">
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="./images/profile-2.jpg" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Mike Tyson</b> received his order of Night lion tech GPS drone.</p>
-                            <!-- <small class="text-muted">2 Minutes Ago</small> -->
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="./images/profile-3.jpg" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Mike Tyson</b> received his order of Night lion tech GPS drone.</p>
-                            <!-- <small class="text-muted">2 Minutes Ago</small> -->
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="./images/profile-4.jpg" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Mike Tyson</b> received his order of Night lion tech GPS drone.</p>
-                            <!-- <small class="text-muted">2 Minutes Ago</small> -->
-                        </div>
-                    </div>
+                                <h4>Just new order Added.</h4>
+
                 </div>
             </div>
             <!-- end of recent updates -->
