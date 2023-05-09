@@ -54,7 +54,7 @@
         <form method="post" action="" class="form-container-product">
             @csrf
             @method('PATCH')
-            <h1>Add Product</h1>
+            <h1>Edit Product</h1>
             <label for="text"><b>Image</b></label>
             <button id="uploadBtn" class="space"><span class="material-icons-sharp">folder</span></button>
             <div id="imageContainer" style="display:none; width: 375px; height: 211px;"></div>
@@ -105,8 +105,8 @@
 
 <div class="recent-orders">
     <h2>Products</h2>
-     @if(isset($products) && count($products) > 0)
-    <p>Total number of products: {{ count($products) }}</p>
+     {{-- @if(isset($products) && count($products) > 0)
+    <p>Total number of products: {{ count($products) }}</p> --}}
     <table id="category_data">
         <thead>
             <tr>
@@ -120,21 +120,19 @@
             </tr>
         </thead>
         <tbody>
-
+            @if(isset($products) )
             @foreach ($products as $product )
             <tr class="height1">
-                <td class="table_image">
-                    <img class="profile-photo1" src="./images/box.jpg" alt="">
-                </td>
+                <td class="table_image"><img class="profile-photo1" src="./images/box.jpg" alt=""></td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->quantity }}</td>
                 <td>{{ $product->category->name ?? "" }}</td>
                 <td>{{ $product->availability ? "Active" : "Inactive" }}</td>
-                <td class="action">
-                    <button onclick="editProduct({{ $product }})"><span class="material-icons-sharp">edit</span></button>
-                    <a href="/product/delete/{{$product->id}}" onclick="return confirm('Are your sure?')"><button><span class="material-icons-sharp">delete</span></button></a>
-                </td>
+                <td class="action" style="display: flex; align-items: center; padding-left:35%;">
+    <button onclick="editProduct({{ $product }})" ><span class="material-icons-sharp" >edit</span></button>
+    <a class="deletebutton" href="/product/delete/{{$product->id}}" onclick="return confirm('Are your sure?')"style="margin-left: 8px;"><button><span class="material-icons-sharp">delete</span></button></a>
+</td>
             </tr>
             @endforeach
             @endif

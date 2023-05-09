@@ -84,8 +84,8 @@
 
 <div class="recent-orders">
     <h2>Members</h2>
-    @if(isset($members) && count($members) > 0)
-    <p>Total number of members: {{ count($members) }}</p>
+    {{-- @if(isset($members) && count($members) > 0)
+    <p>Total number of members: {{ count($members) }}</p> --}}
     <table id="category_data">
         <thead>
             <tr>
@@ -97,16 +97,16 @@
             </tr>
         </thead>
         <tbody>
-            {{-- @if(isset($members)) --}}
+            @if(isset($members))
             @foreach ($members as $member )
             <tr>
                 <td>{{ $member->name }}</td>
                 <td>{{ $member->email }}</td>
                 <td>{{ $member->phone }}</td>
                 <td>{{ $member->address }}</td>
-                <td class="action">
+                <td class="action" style="display: flex; align-items: center; padding-left:35%;">
                     <button onclick="editMember({{ $member }})"><span class="material-icons-sharp">edit</span></button>
-                    <a href="/member/delete/{{$member->id}}" onclick="return confirm('Are your sure?')"><button><span class="material-icons-sharp">delete</span></button>
+                    <a href="/member/delete/{{$member->id}}" onclick="return confirm('Are your sure?')"style="margin-left: 8px;"><button><span class="material-icons-sharp">delete</span></button>
                 </td>
             </tr>
             @endforeach

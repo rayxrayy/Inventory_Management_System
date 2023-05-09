@@ -21,6 +21,9 @@ class DashboardController extends Controller
     $data['total_member'] = member::count();
     $data['total_product'] = product::count();
     $data['total_sales'] = Order::sum('net_amount');
+    $data['paid_amount'] = Order::where('is_paid', true)->count();
+    $data['unpaid_amount'] = Order::where('is_paid', false)->count();
+
     // dd($data);
     // load dashboard view with latest notification
     return view('dashboard', compact('data'));
