@@ -26,10 +26,12 @@
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
+                @if(auth()->user()->role === "1")
                 <a id="member" href="./member" class="{{ Request::is('member') ? 'active' : '' }}">
                     <span class="material-icons-sharp">groups</span>
                     <h3>Members</h3>
                 </a>
+                @endif
                 <a id="company" href="./company" class="{{ Request::is('company') ? 'active' : '' }}">
                     <span class="material-icons-sharp">apartment</span>
                     <h3>Company</h3>

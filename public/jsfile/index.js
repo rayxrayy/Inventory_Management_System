@@ -94,9 +94,9 @@ function openForm() {
     document.getElementById('member-name').value = member.name;
     document.getElementById('member-password').value = member.password;
     document.getElementById('member-email').value = member.email;
-    document.getElementById('member-phone').value = member.phone;
-    document.getElementById('member-address').value = member.address;
-    document.getElementById('gender').value = member.gender;
+    document.getElementById('member-phone').value = member.user_member.phone;
+    document.getElementById('member-address').value = member.user_member.address;
+    document.getElementById('gender').value = member.user_member.gender;
     document.getElementById('edit-member-form').style.display = "block";
   }
 
