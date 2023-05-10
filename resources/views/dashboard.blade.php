@@ -40,10 +40,12 @@
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
+                @if(auth()->user()->role === '1')
                 <a id="member" href="./member">
                     <span class="material-icons-sharp">groups</span>
                     <h3>Members</h3>
                 </a>
+                @endif
                 <a id="company" href="./company" data-id="asdsadasdd" data-name="{{ Request::is('company') ? 'asdsad' : '' }}" class="{{ Request::is('company') ? 'active' : '' }}">
                     <span class="material-icons-sharp">apartment</span>
                     <h3>Company</h3>

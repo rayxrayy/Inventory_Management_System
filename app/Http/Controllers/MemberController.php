@@ -3,13 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\member;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 
 class MemberController extends Controller
 {
     public function index(){
-        $members = member::all();
+        $member_role_id = DB::table('roles')->where('name','member')->first();
+
+        if(!is_null($member_role_id)){
+            $member_role_id = $member_role_id->id;
+        }
+        else{
+            dd("ERROR::Please check roles table. Roles must be admin and member in lower case.");
+        }
+
+        $members = User::with('user_member')->where('role',$member_role_id)->get();
+//        dd($members);
 
         // dd($members);
         // $membersCount = Member::count();
@@ -17,26 +30,42 @@ class MemberController extends Controller
         return view('member',compact('members'));
     }
     public function store(Request $request){
-        $member = new member();
-        // dd($member);
-        $member->name = $request->input('name');
-        $member->password = $request->input('password');
-        $member->email = $request->input('email');
-        $member->phone = $request->input('phone');
-        $member->address = $request->input('address');
-        $member->gender = $request->input('gender');
-        $member->save();
+//        dd($request);
+        $member_role_id = DB::table('roles')->where('name','member')->first();
+
+        if(!is_null($member_role_id)){
+            $member_role_id = $member_role_id->id;
+        }
+        else{
+            return redirect('/member');
+        }
+
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->password = Hash::make($request->input('password'));
+        $user->email = $request->input('email');
+        $user->role = $member_role_id;
+        $user->save();
+
+        $details = new member();
+        $details->phone = $request->input('phone');
+        $details->address = $request->input('address');
+        $details->gender = $request->input('gender');
+        $details->user_id = $user->id;
+        $details->save();
 
         return redirect('/member');
-        // dd($request);
+
     }
 
 
    // Delete a member
    public function destroy($id)
    {
-       $member = member::find($id);
-       $member->delete();
+       $user = user::find($id);
+       $user->delete();
+       member::where('user_id',$user)->delete();
+
        return redirect('/member')->with(['message'   => 'member deleted successfully']);
    }
 
@@ -47,14 +76,18 @@ class MemberController extends Controller
            return redirect('/member')->with(['message' => 'Oops.. Something went wrong']);
        }
 
-       $member = member::find($request->input('id'));
-       $member->name = $request->input('name') ?? $member->name;
-       $member->password = $request->input('password') ?? $member->password;
-       $member->email = $request->input('email') ?? $member->email;
-       $member->phone = $request->input('phone') ?? $member->phone;
-       $member->address = $request->input('address') ?? $member->address;
-       $member->gender = $request->input('gender') ?? $member->gender;
-       $member->save();
+       $user = User::find($request->input('id'));
+       $user->name = $request->input('name');
+       $user->password = (trim($request->input('password')) !== '') ? Hash::make($request->input('password')) : $user->password;
+       $user->email = $request->input('email');
+       $user->save();
+
+       $details = member::where('user_id',$user->id)->first();
+       $details->phone = $request->input('phone');
+       $details->address = $request->input('address');
+       $details->gender = $request->input('gender');
+       $details->user_id = $user->id;
+       $details->save();
 
        return redirect('/member')->with(['message' => 'member updated successfully']);
    }

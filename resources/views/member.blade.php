@@ -102,8 +102,8 @@
             <tr>
                 <td>{{ $member->name }}</td>
                 <td>{{ $member->email }}</td>
-                <td>{{ $member->phone }}</td>
-                <td>{{ $member->address }}</td>
+                <td>{{ $member->user_member->phone ??'' }}</td>
+                <td>{{ $member->user_member->address ?? '' }}</td>
                 <td class="action" style="display: flex; align-items: center; padding-left:35%;">
                     <button onclick="editMember({{ $member }})"><span class="material-icons-sharp">edit</span></button>
                     <a href="/member/delete/{{$member->id}}" onclick="return confirm('Are your sure?')"style="margin-left: 8px;"><button><span class="material-icons-sharp">delete</span></button>

@@ -14,6 +14,7 @@ class DashboardController extends Controller
 {
     public function index()
 {
+//    dd(auth()->user()->role);
 
     // get latest notification
     // $latestNotification = Notification::latest()->first();
