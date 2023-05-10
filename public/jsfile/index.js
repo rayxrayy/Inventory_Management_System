@@ -121,6 +121,12 @@ function openForm() {
       document.getElementById("edit-bill-form").style.display = "none";
   }
 
+  function editprofile(user){
+    document.getElementById('user-id').value = user.id;
+    document.getElementById('user-name').value = user.name;
+    document.getElementById('edit-user-form').style.display = "block";
+  }
+
 
 // HTML to Excel
 function html_table_to_excel(type)
@@ -141,35 +147,35 @@ function html_table_to_excel(type)
     });
 
 
-//image load product page
+// //image load product page
 
-const uploadBtn = document.getElementById('uploadBtn');
-const imageContainer = document.getElementById('imageContainer');
+// const uploadBtn = document.getElementById('uploadBtn');
+// const imageContainer = document.getElementById('imageContainer');
 
-uploadBtn.addEventListener('click', () => {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = 'image/jpg , image/png';
+// uploadBtn.addEventListener('click', () => {
+//   const input = document.createElement('input');
+//   input.type = 'file';
+//   input.accept = 'image/jpg , image/png';
 
-  input.addEventListener('change', (event) => {
-    const file = event.target.files[0];
+//   input.addEventListener('change', (event) => {
+//     const file = event.target.files[0];
 
-    const reader = new FileReader();
-    reader.addEventListener('load', (event) => {
-      const image = new Image();
-      image.src = event.target.result;
-      image.style.maxWidth = '100%';
-      image.style.maxHeight = '100%';
-      imageContainer.innerHTML = '';
-      imageContainer.appendChild(image);
-      imageContainer.style.display = 'block';
-    });
+//     const reader = new FileReader();
+//     reader.addEventListener('load', (event) => {
+//       const image = new Image();
+//       image.src = event.target.result;
+//       image.style.maxWidth = '100%';
+//       image.style.maxHeight = '100%';
+//       imageContainer.innerHTML = '';
+//       imageContainer.appendChild(image);
+//       imageContainer.style.display = 'block';
+//     });
 
-    reader.readAsDataURL(file);
-  });
+//     reader.readAsDataURL(file);
+//   });
 
-  input.click();
-});
+//   input.click();
+// });
 
 //delete button of category page
 function deleteRow(r) {

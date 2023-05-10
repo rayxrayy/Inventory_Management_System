@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\logincontroller as ControllersLogincontroller;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -75,7 +76,7 @@ Route::get('/product/delete/{id}',[productController::class,'destroy']);
 Route::get('/company', [imscontroller::class, 'company'])->name('company');
 
 Route::get('/setting',[SettingController::class,'index']);
-Route::post('/setting',[SettingController::class,'store']);
+Route::patch('/setting',[logincontroller::class,'update']);
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 

@@ -135,16 +135,7 @@
         <div class="total_wrap">
             <div id="paidbutton">
                 <h4>Bill Status</h4>
-                <a href='{{  route('bill.confirmPayment',['order_id' => $bill->id]) }}'><button style="
-        background: #7380ec;
-        color: #363949;
-        font-size: 15px;
-        font-weight: 800;
-        border: 1px solid #7380ec;
-        padding: 15px 20px;
-        border-radius: 1rem;
-        {{-- box-shadow: 0 2rem 3rem; --}}
-   ">Paid</button></a>
+                <a onclick = "confirmPayment()"><button style="background: #7380ec;    color: #363949;    font-size: 15px;    font-weight: 800;border: 1px solid #7380ec;padding: 15px 20px;border-radius: 1rem;">Paid</button> </a>
             </div>
             <div class="printbutton" style="display: flex; justify-content: flex-start; align-items: center; margin-top: 20px;">
                 <button style="background: #7380ec; color: #363949; font-size: 15px; font-weight: 800; border: 1px solid #7380ec; padding: 15px 20px; border-radius: 1rem; " onclick="window.print()">Print</button>
@@ -152,5 +143,13 @@
 
         </div>
         @endif
+        <script>
+        function confirmPayment(bill_id) {
+    if (confirm("Are you sure you want to mark this bill as paid?")) {
+        // Redirect the user to the payment confirmation page
+        window.location.href = '{{  route('bill.confirmPayment',['order_id' => $bill->id]) }}';
+    }
+}
+</script>
     </div>
 </div>

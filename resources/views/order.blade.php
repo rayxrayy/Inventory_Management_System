@@ -7,16 +7,12 @@
       <button type="button" id="add_category" onclick="openForm()">Add Order</button>
 
       <!-- Add Category Form -->
-      <div class="form-popup-product" id="myForm">
+      <div class="form-popup-product" id="myForm" style="max-height: 750px;
+  overflow-y: scroll;">
         <form action="/order" class="form-container-product" method="POST">
           <h1>Add Order</h1>
 
           @csrf
-          <div class="theme-product">
-            <span><b>Date: </b> 2023-11-06</span>
-             <span><b>Time: </b> 05:47 pm</span>
-
-          </div>
 
           <label class="col-sm-5 control-label" for="text"><b>Client Name</b></label>
           <input type="text" placeholder="Enter Client Name" name="name" required>

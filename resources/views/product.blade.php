@@ -11,9 +11,9 @@
         <form method="post" action="" class="form-container-product">
             @csrf
             <h1>Add Product</h1>
-            <label for="text"><b>Image</b></label>
+            {{-- <label for="text"><b>Image</b></label>
             <button class="space"><span class="material-icons-sharp">folder</span></button>
-            <!-- <input type="text" placeholder="Enter Category Name" name="name" required> -->
+            <!-- <input type="text" placeholder="Enter Category Name" name="name" required> --> --}}
 
             <label for="text"><b>Product Name</b></label>
             <input type="text" placeholder="Enter Product Name" name="name" required>
@@ -55,14 +55,13 @@
             @csrf
             @method('PATCH')
             <h1>Edit Product</h1>
-            <label for="text"><b>Image</b></label>
+            {{-- <label for="text"><b>Image</b></label>
             <button id="uploadBtn" class="space"><span class="material-icons-sharp">folder</span></button>
-            <div id="imageContainer" style="display:none; width: 375px; height: 211px;"></div>
+            <div id="imageContainer" style="display:none; width: 375px; height: 211px;"></div> --}}
 
             <input id="product-id" type="hidden" name="id" />
             <label for="text"><b>Product Name</b></label>
             <input id="product-name" type="text" placeholder="Enter Product Name" name="name" required>
-
             <label for="status"><b>Price</b></label>
             <input id="product-price" type="number" placeholder="Enter Price" name="price" required>
 
@@ -110,7 +109,7 @@
     <table id="category_data">
         <thead>
             <tr>
-                <th>Image</th>
+                {{-- <th>Image</th> --}}
                 <th>Product</th>
                 <th>Price</th>
                 <th>Qty</th>
@@ -123,7 +122,7 @@
             @if(isset($products) )
             @foreach ($products as $product )
             <tr class="height1">
-                <td class="table_image"><img class="profile-photo1" src="./images/box.jpg" alt=""></td>
+                {{-- <td class="table_image"><img class="profile-photo1" src="./images/box.jpg" alt=""></td> --}}
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->quantity }}</td>

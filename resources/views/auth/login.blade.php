@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,10 +21,15 @@
                         @csrf
                         <div class="login-form-content">
                             <div class="form-item">
+
                                 <label for="emailForm">Enter Email</label>
                                 <input type="text" id="emailForm" name="email" required>
 
                             </div>
+                            {{-- @if (session()->has('failed'))
+                        <div class="error-message">{{ session()->get('failed') }}</div>
+                        <div>{{  }}</div>
+                        @endif --}}
                             <div class="form-item">
                                 <label for="passwordForm">Enter Password</label>
                                 <input type="password" id="passwordForm" name="password" required>
@@ -35,39 +39,27 @@
                                     <input type="checkbox" id="rememberMeCheckbox" checked>
                                     <label class="checkboxLabel" for="rememberMeCheckbox">Remember me</label>
                                     <div>
-                                        <a class="btn btn-link" href="">
+                                        <a class="btn btn-link" href="./forgot-password">
                                             <span class="material-icons-sharp ">| Forgot password</span>
                                         </a>
-                                        {{-- @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                        </a>
-                                        @endif --}}
-                                        {{-- <a>I Forgot Password!</a> --}}
                                     </div>
                                 </div>
                             </div>
                             <button name="submit" type="submit">log In</button>
                             <!-- <button onsubmit="return index()" >login</button>  -->
-                        </div> @if (session('error'))
-                        <div class="error-message">{{ session('error') }}</div>
-                        @endif
-                        {{-- <div class="login-form-footer">
-                            <a href="#">
-                                <img width="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1365px-Facebook_f_logo_%282019%29.svg.png">
-                                Facebook Login
-                            </a>
-                            <a href="#">
-                                <img width="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5q0FP74VV9wbfwP378_7kj7iDomHuKrxkXsxDdUT28V9dlVMNUe-EMzaLwaFhneeuZI&usqp=CAU">
-                                Google Login
-                            </a>
-                        </div> --}}
+                        </div>
                     </form>
                 </form>
                 <form action="#" class="sign-up-form">
                     <div class="login-header">
-                        <h1>Welcome to Our Application</h1>
-                        <p>Please login to use the platform</p>
+                        <h4>Welcome to Our Application</h4>
+                        <p>At CargoRex, we are a leading manufacturer and trader of high-quality glue boxes and chemicals. With years of experience in the industry, we have built a reputation for delivering premium products and exceptional customer service.
+
+Our state-of-the-art manufacturing facility employs the latest technologies and processes to ensure that our products meet the highest standards of quality and reliability. We use only the best materials and ingredients to produce our products, and we constantly strive to improve our processes to minimize waste and reduce our environmental impact.
+
+In addition to manufacturing our own products, we also trade a wide range of chemical products, including adhesives, coatings, and sealants. Our experienced team of professionals has a deep understanding of the industry and can help you find the right products to meet your specific needs.
+
+At CargoRex, we are committed to providing our customers with the best possible products and services. Whether you need custom glue boxes, specialty chemicals, or expert advice, we are here to help. Contact us today to learn more about our products and services.</p>
                     </div>
                 </form>
             </div>

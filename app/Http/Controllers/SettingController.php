@@ -8,20 +8,19 @@ use Illuminate\Http\Request;
 class SettingController extends Controller
 {
     public function index(){
-        $settings = setting::all();
-        return view('setting',compact('settings'));
+        // $settings = setting::all();
+        return view('setting');
     }
-    public function store(Request $request){
+//     public function store(Request $request){
 
-        $setting = new setting();
+//         $setting = new setting();
 
-        $setting->firstname = $request->input('firstname');
-        $setting->lastname = $request->input('lastname');
-        $setting->email = $request->input('email');
-        $setting->phone = $request->input('phone');
-        $setting->save();
+//         $setting->firstname = $request->input('firstname');
+//         $setting->lastname = $request->input('lastname');
+//         $setting->email = $request->input('email');
+//         $setting->phone = $request->input('phone');
+//         $setting->save();
 
-        return redirect('/setting');
+//         return redirect('/setting');
 
-    }
 }

@@ -18,10 +18,10 @@
             <div class="btn_wrap">
                 <span>Share</span>
                 <div class="container1">
-<a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-<a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-<a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://www.messenger.com/" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.messenger.com/" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
 
                 </div>
             </div>
