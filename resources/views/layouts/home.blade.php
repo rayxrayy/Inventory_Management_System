@@ -585,11 +585,11 @@ select {
 
 
   .flex {
-    display: flex;
+        display: flex;
     justify-content: space-around;
-    margin-top: 52px;
-    /* flex-direction: column; */
-    /* justify-content: center; */
+    margin-top: 30px;
+    flex-direction: column;
+    padding-left: 7%;
   }
   /* Add styles to the form container */
   .form-container-setting {
@@ -1118,7 +1118,8 @@ select {
     </main>
 
 </div>
-<script src="{{ asset('jsfile/index.js') }}"></script>
+<script src="{{ asset('jsfile/index.js') }}">
+</script>
 @yield('script')
 </body>
 </html>

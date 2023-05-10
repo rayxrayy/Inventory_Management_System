@@ -31,29 +31,6 @@ class MemberController extends Controller
         // dd($request);
     }
 
-//     public function stores(Request $request)
-// {
-//     // validate request data
-//     $validatedData = $request->validate([
-//         'name' => 'required',
-//         'password' => 'required',
-//         'email' => 'required|email|unique:members',
-//         'phone' => 'required',
-//         'address' => 'required',
-//         'gender' => 'required',
-//     ]);
-
-//     // create member
-//     $member = Member::create($validatedData);
-
-//     // create notification
-//     $notificationMessage = 'New member added: ' . $member->name;
-//     Notification::create(['message' => $notificationMessage]);
-
-//     // redirect to members index page
-//     return redirect()->route('members.index')->with('success', 'Member added successfully.');
-// }
-
 
    // Delete a member
    public function destroy($id)
