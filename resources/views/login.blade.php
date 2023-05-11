@@ -20,16 +20,14 @@
                     <form class="login-form" action='{{  route('login') }}' autocomplete="off" method="POST">
                         @csrf
                         <div class="login-form-content">
+                        @If(session('error'))
+                                <div style="color:red;">{{ session('error') }}</div>
+                                @endif
                             <div class="form-item">
-
                                 <label for="emailForm">Enter Email</label>
                                 <input type="text" id="emailForm" name="email" required>
 
                             </div>
-                            {{-- @if (session()->has('failed'))
-                        <div class="error-message">{{ session()->get('failed') }}</div>
-                        <div>{{  }}</div>
-                        @endif --}}
                             <div class="form-item">
                                 <label for="passwordForm">Enter Password</label>
                                 <input type="password" id="passwordForm" name="password" required>
@@ -55,11 +53,11 @@
                         <h4>Welcome to Our Application</h4>
                         <p>At CargoRex, we are a leading manufacturer and trader of high-quality glue boxes and chemicals. With years of experience in the industry, we have built a reputation for delivering premium products and exceptional customer service.
 
-Our state-of-the-art manufacturing facility employs the latest technologies and processes to ensure that our products meet the highest standards of quality and reliability. We use only the best materials and ingredients to produce our products, and we constantly strive to improve our processes to minimize waste and reduce our environmental impact.
+                            Our state-of-the-art manufacturing facility employs the latest technologies and processes to ensure that our products meet the highest standards of quality and reliability. We use only the best materials and ingredients to produce our products, and we constantly strive to improve our processes to minimize waste and reduce our environmental impact.
 
-In addition to manufacturing our own products, we also trade a wide range of chemical products, including adhesives, coatings, and sealants. Our experienced team of professionals has a deep understanding of the industry and can help you find the right products to meet your specific needs.
+                            In addition to manufacturing our own products, we also trade a wide range of chemical products, including adhesives, coatings, and sealants. Our experienced team of professionals has a deep understanding of the industry and can help you find the right products to meet your specific needs.
 
-At CargoRex, we are committed to providing our customers with the best possible products and services. Whether you need custom glue boxes, specialty chemicals, or expert advice, we are here to help. Contact us today to learn more about our products and services.</p>
+                            At CargoRex, we are committed to providing our customers with the best possible products and services. Whether you need custom glue boxes, specialty chemicals, or expert advice, we are here to help. Contact us today to learn more about our products and services.</p>
                     </div>
                 </form>
             </div>

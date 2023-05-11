@@ -206,7 +206,7 @@
             <div class="profile">
                 <div class="info">
                     <p>Hey, <b>{{ auth()->user()->name }}</b></p>
-                    <small class="text-muted">Admin</small>
+                    <small class="text-muted">{{  auth()->user()->role ==='1' ?'Admin' : 'Member' }}</small>
                     {{-- <small class="text-muted" ><input type="text" value="User" style="color:#677483" disabled/></small> --}}
                 </div>
                 <div class="profile-photo">

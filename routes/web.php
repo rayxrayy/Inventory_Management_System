@@ -38,7 +38,7 @@ use Illuminate\Support\Str;
 */
 
 
-Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::post('/login',[LoginController::class,'loginUser'])->name('login');
 Route::get('/login',[LoginController::class,'showLoginForm']);
 
 Route::middleware('auth')->group(function(){
@@ -76,7 +76,7 @@ Route::get('/product/delete/{id}',[productController::class,'destroy']);
 Route::get('/company', [imscontroller::class, 'company'])->name('company');
 
 Route::get('/setting',[SettingController::class,'index']);
-Route::patch('/setting',[logincontroller::class,'update']);
+Route::post('/setting',[ControllersLogincontroller::class,'update'])->name('setting.update');
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Exception;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -40,5 +42,15 @@ class LoginController extends Controller
     }
     public function checkpassword(){
         // database ma vako lai tanne and login passwordfield ma aako password lai hash garne ani then check both hash password
+    }
+
+    public function loginUser(Request $request){
+        try{
+            $this->login($request);
+
+        }catch(Exception $e){
+return redirect('/login')->with('error',$e->getMessage());
+        }
+        return redirect($this->redirectTo);
     }
 }

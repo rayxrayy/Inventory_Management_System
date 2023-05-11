@@ -20,12 +20,13 @@ class logincontroller extends Controller
 
     public function update(Request $request)
     {
-        if(!$request->has('id')){
-            return redirect('/setting')->with(['message' => 'Oops.. Something went wrong']);
-        }
 
-        $user = User::find($request->input('id'));
-        $user->name = $request->input('name') ?? $user->name;
+            // dd($request);
+
+        $user = User::where('id',auth()->user()->id)->first();
+
+
+        $user->name = $request->input('fullname') ?? '';;
         // $user->status = $request->input('status') ?? $user->status;
         $user->save();
 

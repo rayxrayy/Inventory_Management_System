@@ -28,7 +28,7 @@ class DashboardController extends Controller
     $data['customer_name'] = Order::pluck('client_name')->toArray();
     $data['category'] = Category::pluck('name')->toArray();
     $data['product'] = Product::pluck('name')->toArray();
-    $data['member'] = Member::pluck('name')->toArray();
+    // $data['member'] = Member::pluck('name')->toArray();
     $data['profile'] = setting::pluck('firstname')->toArray();
     // $data['product_name'] = Product::pluck('name')->toArray();
 
