@@ -5,12 +5,12 @@
 <div class="flex">
     <div class="box" id="edit-user-form">
         <h2>Edit Profile</h2>
-        <form method="POST" action="/setting" class="form-container-setting">
+        <form method="POST" action="{{  route('setting.update') }}" class="form-container-setting">
         @csrf
-        @method('PATCH')
+
         <input id="user-id" type="hidden" name="id" />
             <label for="text"><b>Full Name</b></label>
-            <input id='user-name' type="text" name="firstname" value="{{ auth()->user()->name }}" autofocus="" required>
+            <input id='user-name' type="text" name="fullname" value="{{ auth()->user()->name }}" autofocus="" required>
 
             <label for="text"><b>Address</b></label>
             <input id='address' type="text" placeholder="Enter Last Name" name="lastname" value="Naxal" required>

@@ -10,7 +10,7 @@
         <div class="profile">
             <div class="info">
                 <p>Hey, <b>{{ auth()->user()->name }}</b></p>
-                <small class="text-muted">Admin</small>
+                <small class="text-muted">{{  auth()->user()->role === '1' ? 'Admin' : 'Member' }}</small>
             </div>
             <div class="profile-photo">
                 <img src="./images/photo.jpg" alt="">
